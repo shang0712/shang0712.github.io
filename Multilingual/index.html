@@ -27,45 +27,38 @@
     Among them, spk4 speaks with an Indian accent. spk3 and spk5 are male speakers.</strong>
 
   <p>&nbsp;</p>
-  <h3>1. Convert between MM and MF.</h3>
-  <h4> Convert MF to MM: </h4>
+  <h3>Multilingual speech synthesis</h3>
+  <h4> Baseline: </h4>
   <table border="1">
     <tr>
-      <td width="120px">&nbsp;
-
+      <td>
+        <div align="Source language\Target language">GT</div>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">Seen utterance</p>
+          <p align="CN">Seen utterance</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">Converted results</p>
+          <p align="EN">Converted results</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">Unseen utterance</p>
-
-        </blockquote>
-      </td>
-      <td colspan="1">
-        <blockquote>
-
-          <p align="center">Converted results</p>
+          <p align="DE">Unseen utterance</p>
 
         </blockquote>
       </td>
     </tr>
     <tr>
       <td>
-        <div align="center">GT</div>
+        <div align="center">CN</div>
       </td>
       <td><audio src="wavs/GT/MF-000010.wav" controls="controls">
           Your browser does not support the audio tag.
@@ -76,45 +69,34 @@
       <td><audio src="wavs/GT/MF-005000.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/GT/MM-005000.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
     </tr>
     <tr>
       <td>
-        <div align="center">Baseline</div>
+        <div align="center">EN</div>
       </td>
       <td width="149">
         <audio src="wavs/GT/MF-000010.wav" controls="controls">
           Your browser does not support the audio tag.
-        </audio>
-      </td>
+        </audio></td>
       <td width="147"><audio src="wavs/baseline/baseline-MF-MM-000010.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
       <td width="151"><audio src="wavs/GT/MF-005000.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="149"><audio src="wavs/baseline/baseline-MF-MM-005000.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
     </tr>
     <tr>
       <td>
-        <div align="center">Proposed</div>
+        <div align="center">DE</div>
       </td>
       <td width="149">
         <audio src="wavs/GT/MF-000010.wav" controls="controls">
           Your browser does not support the audio tag.
-        </audio>
-      </td>
+        </audio></td>
       <td width="147"><audio src="wavs/proposed/proposed-MF-MM-000010.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
       <td width="151"><audio src="wavs/GT/MF-005000.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
-      <td width="149"><audio src="wavs/proposed/proposed-MF-MM-005000.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
