@@ -248,21 +248,34 @@
     </tr>
   </table>
   <p>&nbsp;</p>
-  <h3>2. Convert MM and MF to Baker.</h3>
-  <h4>Reference utterances of Baker:</h4>
+  <h3>Style transfer</h3>
   <table border="1">
     <tr>
       <td width="120">
-        <div align="center">Methods</div>
+        <div align="center">Source speaker\Target style</div>
       </td>
-      <td colspan="4">
-        <p align="center">Reference utterances</p>
+      <td colspan="1">
+        <p align="center">style1</p>
       </td>
+      <td colspan="1">
+        <p align="center">style2</p>
+      </td>
+      <td colspan="1">
+        <p align="center">style3</p>
+      </td>
+      <td colspan="1">
+        <p align="center">style4</p>
+      </td>
+      <td colspan="1">
+        <p align="center">style5</p>
+      </td>
+      <td colspan="1">
+        <p align="center">style6</p>
       </td>
     </tr>
     <tr>
       <td>
-        <div align="center">GT</div>
+        <div align="center">Spk1</div>
       </td>
       <td width="169"><audio src="wavs/GT/baker-000005.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
@@ -272,99 +285,27 @@
           support the audio tag. </audio></td>
       <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
-    </tr>
-  </table>
-
-  <h4>MM to Baker:</h4>
-  <table border="1">
-    <tr>
-      <td width="120">
-        <div align="center">Methods</div>
-      </td>
-      <td colspan="1">
-        <p align="center">Seen utterance</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Converted results</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Unseen utterance</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Converted results</p>
-      </td>
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
     </tr>
     <tr>
       <td>
-        <div align="center">Baseline</div>
+        <div align="center">Reference audio</div>
       </td>
-      <td width="169"><audio src="wavs/GT/MM-000020.wav" controls="controls"> Your browser does not
+      <td width="169"><audio src="wavs/GT/baker-000005.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
-      <td width="187"><audio src="wavs/baseline/baseline-MM-baker-000020.wav" controls="controls"> Your browser does not
+      <td width="187"><audio src="wavs/GT/baker-000008.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
-      <td width="155"><audio src="wavs/GT/MM-004986.wav" controls="controls"> Your browser does not
+      <td width="155"><audio src="wavs/GT/baker-000011.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/baseline/baseline-MM-baker-004986.wav" controls="controls"> Your browser does not
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">Proposed</div>
-      </td>
-      <td><audio src="wavs/GT/MM-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/proposed/proposed-MM-baker-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/GT/MM-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/proposed/proposed-MM-baker-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-    </tr>
-  </table>
-  <h4>MF to Baker:</h4>
-  <table border="1">
-    <tr>
-      <td width="120">
-        <div align="center">Methods</div>
-      </td>
-      <td colspan="1">
-        <p align="center">Seen utterance</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Converted results</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Unseen utterance</p>
-      </td>
-      <td colspan="1">
-        <p align="center">Converted results</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">Baseline</div>
-      </td>
-      <td width="169"><audio src="wavs/GT/MF-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="187"><audio src="wavs/baseline/baseline-MF-baker-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="155"><audio src="wavs/GT/MF-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/baseline/baseline-MF-baker-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">Proposed</div>
-      </td>
-      <td><audio src="wavs/GT/MF-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/proposed/proposed-MF-baker-000020.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/GT/MF-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td><audio src="wavs/proposed/proposed-MF-baker-004986.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
     </tr>
   </table>
   <p>&nbsp;</p>
