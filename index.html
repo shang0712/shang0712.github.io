@@ -1,0 +1,145 @@
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Audio samples from "Wavelet Analysis for Prominence in Bilingual End-to-End Speech Synthesis</title>
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
+    <link rel="shortcut icon" href="../../images/taco.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Wavelet Analysis for Prominence in Bilingual End-to-End Speech Synthesis"</h1>
+      </header>
+    </article>
+
+    <div><b>Authors:</b>*</div>
+    <div><b>Abstract:</b> When deploying bilingual text-to-speech (TTS) system, we focus on the consistency of prosody cross languages. 
+      However, the two mixed languages, Mandarin and English, belong to two language families that are phonetically and grammatically different. 
+      The lack of annotation and evaluation method in bilingual prosody limits the bilingual performance of the model. 
+      The difficulty is compounded by unbalanced training data. In this paper, we look into the problem with bilingual prominence. 
+      Specifically, we extracted the bilingual prominence with Continuous Wavelet Transform (CWT) and evaluate the consistency of bilingual prosody objectively. 
+      We evaluate our method on end-to-end model with prominence embedding. 
+      Our bilingual prosody is stable when only monolingual recordings of a source language speaker are available. 
+      Both similarity and naturalness of prosody make an improvement in our objective and subjective evaluation.
+    </div>
+
+    <h3>Monolingual dataset DataBaker( 12hours Mandarin female ) is used in the demo. The sample rate is 8KHz .</h3>
+    <h3>The prominence is marked in Black.</h3>
+
+    <div>
+      <h3>We can change the location and levels of the prominence.</h3>
+      <table>
+        <tr><td class="transcript">“她见我一进门就骂，吃<b>饭</b>(level 1)时也骂。骂得我<b>抬</b>(level 1)不起头.”</td></tr>
+        <tr><td><audio controls><source src="0.wav"></audio></td></tr>
+      </table>
+
+      <table>
+        <tr><td class="transcript">“她见我一进门就骂，吃饭时也骂。骂得我<b>抬</b>( level 2)不起头.”</td></tr>
+        <tr><td><audio controls><source src="4.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Bilingual Demos for AB test.</h3>
+      <div>(Note the English words.)</div>
+      <table>
+         <tr><td class="transcript"><b>Baseline</b>:“我男神第一handsome的！”</td></tr>
+        <tr><td><audio controls><source src="hifi_2_baseline.wav"></audio></td></tr>
+        <tr><td class="transcript"><b>Prom-Enc</b>:“我男神第一handsome的！”</td></tr>
+        <tr><td><audio controls><source src="hifi_2_prom_enc.wav"></audio></td></tr>
+        <tr><td class="transcript"><b>Prom-Enc-Dur</b>:“我男神第一handsome的！”</td></tr>
+        <tr><td><audio controls><source src="hifi_2_prom_enc_dur.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+        <h3>Prominence can increase the tone of the sentence.</h3>
+      <table>
+        <tr><td class="transcript"><b>Baseline</b>:“Deadline之前搞不定我fire掉你们整个team！”</td></tr>
+        <tr><td><audio controls><source src="hifi_17_baseline.wav"></audio></td></tr>
+        <tr><td class="transcript"><b>Prom-Enc</b>:“Deadline之前搞不定我fire掉你们整个team！”</td></tr>
+        <tr><td><audio controls><source src="hifi_17_prom_enc.wav"></audio></td></tr>
+        
+      </table>
+    </div>
+
+    <div>
+      <h3>Tacotron 2 is sensitive to punctuation.</h3>
+      <div>(Note how the comma in the first phrase changes prosody.)</div>
+      <table>
+        <tr><td class="transcript">“This is your personal assistant, Google Home.”</td></tr>
+        <tr><td><audio controls><source src="demos/ghome_comma.wav"></audio></td></tr>
+        <tr><td class="transcript">“This is your personal assistant Google Home.”</td></tr>
+        <tr><td><audio controls><source src="demos/ghome_nocomma.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Tacotron 2 learns stress and intonation.</h3>
+      <div>
+        (The speaker is instructed to stress on capitalized words in our
+        training set. So simply capitalizing some words will change the overall
+        intonation.)
+      </div>
+      <table>
+        <tr><td class="transcript">“The buses aren't the problem, they actually provide a solution.”</td></tr>
+        <tr><td><audio controls><source src="demos/bus_nostress.wav"></audio></td></tr>
+        <tr><td class="transcript">“The buses aren't the PROBLEM, they actually provide a SOLUTION.”</td></tr>
+        <tr><td><audio controls><source src="demos/bus_stress.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Tacotron 2's prosody changes when turning a statement into a question.</h3>
+      <table>
+        <tr><td class="transcript">“The quick brown fox jumps over the lazy dog.”</td></tr>
+        <tr><td><audio controls><source src="demos/fox_period.wav"></audio></td></tr>
+        <tr><td class="transcript">“Does the quick brown fox jump over the lazy dog?”</td></tr>
+        <tr><td><audio controls><source src="demos/fox_question.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Tacotron 2 is good at tongue twisters.</h3>
+      <table>
+        <tr><td class="transcript">“Peter Piper picked a peck of pickled peppers. How many pickled peppers did Peter Piper pick?”</td></tr>
+        <tr><td><audio controls><source src="demos/peterpiper.wav"></audio></td></tr>
+        <tr><td class="transcript">“She sells sea-shells on the sea-shore. The shells she sells are sea-shells I'm sure.”</td></tr>
+        <tr><td><audio controls><source src="demos/seashells.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Additional Samples</h3>
+      <table>
+        <tr><td class="transcript">“Talib Kweli confirmed to AllHipHop that he will be releasing an album in the next year.”</td></tr>
+        <tr><td><audio controls><source src="demos/kweli.wav"></audio></td></tr>
+        <tr><td class="transcript">“The blue lagoon is a nineteen eighty American romance adventure film.”</td></tr>
+        <tr><td><audio controls><source src="demos/bluelagoon.wav"></audio></td></tr>
+        <tr><td class="transcript">“Tajima Airport serves Toyooka.”</td></tr>
+        <tr><td><audio controls><source src="demos/tajima.wav"></audio></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Tacotron 2 or Human?</h3>
+      <div>In the following examples, one is generated by Tacotron 2, and one is the recording of a human, but which is which?</div>
+      <table>
+        <tr><td></td><td class="transcript">“That girl did a video about Star Wars lipstick.”</td></tr>
+        <tr><td>1</td><td><audio controls><source src="demos/lipstick_gt.wav"></audio></td></tr>
+        <tr><td>2</td><td><audio controls><source src="demos/lipstick_gen.wav"></audio></td></tr>
+        <tr><td></td><td class="transcript">“She earned a doctorate in sociology at Columbia University.”</td></tr>
+        <tr><td>1</td><td><audio controls><source src="demos/columbia_gen.wav"></audio></td></tr>
+        <tr><td>2</td><td><audio controls><source src="demos/columbia_gt.wav"></audio></td></tr>
+        <tr><td></td><td class="transcript">“George Washington was the first President of the United States.”</td></tr>
+        <tr><td>1</td><td><audio controls><source src="demos/washington_gen.wav"></audio></td></tr>
+        <tr><td>2</td><td><audio controls><source src="demos/washington_gt.wav"></audio></td></tr>
+        <tr><td></td><td class="transcript">“I'm too busy for romance.”</td></tr>
+        <tr><td>1</td><td><audio controls><source src="demos/romance_gt.wav"></audio></td></tr>
+        <tr><td>2</td><td><audio controls><source src="demos/romance_gen.wav"></audio></td></tr>
+      </table>
+    </div>
+
+  </body>
+</html>
