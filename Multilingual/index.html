@@ -1,143 +1,396 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)https://jxzhanggg.github.io/Seq2SeqVC/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Audio samples from "Incorporating fine-grained style transfer for multi-speaker multi-style multi-language text-to-speech</title>
-  </head>
-  <body>
-    <article>
-      <header>
-        <h1>Audio samples from "Incorporating fine-grained style transfer for multi-speaker multi-style multi-language text-to-speech"</h1>
-      </header>
-    </article>
-    <div>
-    	<b>Note:</b>
-    	<span>To obtain the best quality, we strongly recommend readers to listen to the audio samples with headphones.</span>
-    </div>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <div><b>Abstract:</b>
-    </br> This paper proposes a multi-speaker multi-style multi-language speech synthesis scheme based on FastSpeech using monolingual datasets. It supports multi-language speech synthesis for each available timbre and allows the user to customize each language's speaking style. In the model, we carefully decouple the speech into three parts; dynamic style information, speaker-independent linguistics information, and static timbre information. In particular, we utilize a conditional variational encoder for timbre-free style extraction. Secondly, we also conducted adversarial speaker classifiers with gradient reversal layer on the representation of text and style encoder to avoid static timbre information leakage. Then, we built a style predictor for each extracted style. Style transfer could be accomplished by assign any style type at inference, which enables within-language and cross-language style transfer. The experimental results show that our method provides more style choice for multilingual speech synthesis and are more stable in sound quality.</br></br>
-    </div>
+  <title>TVQVC</title>
+  <style type="text/css">
+  </style>
+</head>
 
-    <p>&nbsp;</p>
-      <div>
-      Our training data includes six speakers, covering three languages.  There are three speakers from mandarin (spk1, spk2, spk3), two from English (spk4, spk5), and one from German (spk6). Among them, spk4 speaks with an Indian accent. spk3 and spk5 are male speakers.        <br/><br/>
-	All of the phrases below are unseen during training.
-      </div>
-    
-    <div>
-      <h3>We can change the location and levels of the prominence.</h3>
-      <table>
-        <tr><td class="transcript">“她见我一进门就骂，吃<b>饭</b>(level 1)时也骂。骂得我<b>抬</b>(level 1)不起头.”</td></tr>
-        <tr><td><audio controls><source src="0.wav"></audio></td></tr>
-      </table>
+<body>
+  <h2><strong>Audio Samples from "Incorporating fine-grained style transfer for multi-speaker multi-style multi-language text-to-speech</strong>"</h2>
+  <h3>Paper:</h3>
+  <p>Paper is under review.</p>
+  <h3>Authors: </h3>
+  Anonymous review
+  <h3>Abstract: </h3>
+  This paper proposes a multi-speaker multi-style multi-language speech synthesis scheme based on FastSpeech using monolingual datasets. It supports multi-language speech synthesis for each available timbre and allows the user to customize each language's speaking style. In the model, we carefully decouple the speech into three parts; dynamic style information, speaker-independent linguistics information, and static timbre information. In particular, we utilize a conditional variational encoder for timbre-free style extraction. Secondly, we also conducted adversarial speaker classifiers with gradient reversal layer on the representation of text and style encoder to avoid static timbre information leakage. Then, we built a style predictor for each extracted style. Style transfer could be accomplished by assign any style type at inference, which enables within-language and cross-language style transfer. The experimental results show that our method provides more style choice for multilingual speech synthesis and are more stable in sound quality.
+  <p>&nbsp;</p>
+  <hr>
+  <p>&nbsp;</p>
+  <strong>Our training data includes <font color="red">six speakers</font>, covering three languages. There are three speakers from mandarin (spk1, spk2, spk3), 
+    two from English (spk4, spk5), and one from German (spk6). 
+    Among them, spk4 speaks with an Indian accent. spk3 and spk5 are male speakers.</strong>
 
-      <table>
-        <tr><td class="transcript">“她见我一进门就骂，吃饭时也骂。骂得我<b>抬</b>( level 2)不起头.”</td></tr>
-        <tr><td><audio controls><source src="4.wav"></audio></td></tr>
-      </table>
-    </div>
+  <p>&nbsp;</p>
+  <h3>1. Convert between MM and MF.</h3>
+  <h4> Convert MF to MM: </h4>
+  <table border="1">
+    <tr>
+      <td width="120px">&nbsp;
 
-    <div>
-      <h3>Bilingual Demos for AB test.</h3>
-      <div>(Note the English words.)</div>
-      <table>
-         <tr><td class="transcript"><b>Baseline</b>:“我男神第一handsome的！”</td></tr>
-        <tr><td><audio controls><source src="hifi_2_baseline.wav"></audio></td></tr>
-        <tr><td class="transcript"><b>Prom-Enc</b>:“我男神第一handsome的！”</td></tr>
-        <tr><td><audio controls><source src="hifi_2_prom_enc.wav"></audio></td></tr>
-        <tr><td class="transcript"><b>Prom-Enc-Dur</b>:“我男神第一handsome的！”</td></tr>
-        <tr><td><audio controls><source src="hifi_2_prom_enc_dur.wav"></audio></td></tr>
-      </table>
-    </div>
+      </td>
+      <td colspan="1">
+        <blockquote>
 
-    <div>
-        <h3>Prominence can increase the tone of the sentence.</h3>
-      <table>
-        <tr><td class="transcript"><b>Baseline</b>:“Deadline之前搞不定我fire掉你们整个team！”</td></tr>
-        <tr><td><audio controls><source src="hifi_17_baseline.wav"></audio></td></tr>
-        <tr><td class="transcript"><b>Prom-Enc</b>:“Deadline之前搞不定我fire掉你们整个team！”</td></tr>
-        <tr><td><audio controls><source src="hifi_17_prom_enc.wav"></audio></td></tr>
-        
-      </table>
-    </div>
+          <p align="center">Seen utterance</p>
 
-    <div>
-      <h3>Tacotron 2 is sensitive to punctuation.</h3>
-      <div>(Note how the comma in the first phrase changes prosody.)</div>
-      <table>
-        <tr><td class="transcript">“This is your personal assistant, Google Home.”</td></tr>
-        <tr><td><audio controls><source src="demos/ghome_comma.wav"></audio></td></tr>
-        <tr><td class="transcript">“This is your personal assistant Google Home.”</td></tr>
-        <tr><td><audio controls><source src="demos/ghome_nocomma.wav"></audio></td></tr>
-      </table>
-    </div>
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
 
-    <div>
-      <h3>Tacotron 2 learns stress and intonation.</h3>
-      <div>
-        (The speaker is instructed to stress on capitalized words in our
-        training set. So simply capitalizing some words will change the overall
-        intonation.)
-      </div>
-      <table>
-        <tr><td class="transcript">“The buses aren't the problem, they actually provide a solution.”</td></tr>
-        <tr><td><audio controls><source src="demos/bus_nostress.wav"></audio></td></tr>
-        <tr><td class="transcript">“The buses aren't the PROBLEM, they actually provide a SOLUTION.”</td></tr>
-        <tr><td><audio controls><source src="demos/bus_stress.wav"></audio></td></tr>
-      </table>
-    </div>
+          <p align="center">Converted results</p>
 
-    <div>
-      <h3>Tacotron 2's prosody changes when turning a statement into a question.</h3>
-      <table>
-        <tr><td class="transcript">“The quick brown fox jumps over the lazy dog.”</td></tr>
-        <tr><td><audio controls><source src="demos/fox_period.wav"></audio></td></tr>
-        <tr><td class="transcript">“Does the quick brown fox jump over the lazy dog?”</td></tr>
-        <tr><td><audio controls><source src="demos/fox_question.wav"></audio></td></tr>
-      </table>
-    </div>
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
 
-    <div>
-      <h3>Tacotron 2 is good at tongue twisters.</h3>
-      <table>
-        <tr><td class="transcript">“Peter Piper picked a peck of pickled peppers. How many pickled peppers did Peter Piper pick?”</td></tr>
-        <tr><td><audio controls><source src="demos/peterpiper.wav"></audio></td></tr>
-        <tr><td class="transcript">“She sells sea-shells on the sea-shore. The shells she sells are sea-shells I'm sure.”</td></tr>
-        <tr><td><audio controls><source src="demos/seashells.wav"></audio></td></tr>
-      </table>
-    </div>
+          <p align="center">Unseen utterance</p>
 
-    <div>
-      <h3>Additional Samples</h3>
-      <table>
-        <tr><td class="transcript">“Talib Kweli confirmed to AllHipHop that he will be releasing an album in the next year.”</td></tr>
-        <tr><td><audio controls><source src="demos/kweli.wav"></audio></td></tr>
-        <tr><td class="transcript">“The blue lagoon is a nineteen eighty American romance adventure film.”</td></tr>
-        <tr><td><audio controls><source src="demos/bluelagoon.wav"></audio></td></tr>
-        <tr><td class="transcript">“Tajima Airport serves Toyooka.”</td></tr>
-        <tr><td><audio controls><source src="demos/tajima.wav"></audio></td></tr>
-      </table>
-    </div>
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
 
-    <div>
-      <h3>Tacotron 2 or Human?</h3>
-      <div>In the following examples, one is generated by Tacotron 2, and one is the recording of a human, but which is which?</div>
-      <table>
-        <tr><td></td><td class="transcript">“That girl did a video about Star Wars lipstick.”</td></tr>
-        <tr><td>1</td><td><audio controls><source src="demos/lipstick_gt.wav"></audio></td></tr>
-        <tr><td>2</td><td><audio controls><source src="demos/lipstick_gen.wav"></audio></td></tr>
-        <tr><td></td><td class="transcript">“She earned a doctorate in sociology at Columbia University.”</td></tr>
-        <tr><td>1</td><td><audio controls><source src="demos/columbia_gen.wav"></audio></td></tr>
-        <tr><td>2</td><td><audio controls><source src="demos/columbia_gt.wav"></audio></td></tr>
-        <tr><td></td><td class="transcript">“George Washington was the first President of the United States.”</td></tr>
-        <tr><td>1</td><td><audio controls><source src="demos/washington_gen.wav"></audio></td></tr>
-        <tr><td>2</td><td><audio controls><source src="demos/washington_gt.wav"></audio></td></tr>
-        <tr><td></td><td class="transcript">“I'm too busy for romance.”</td></tr>
-        <tr><td>1</td><td><audio controls><source src="demos/romance_gt.wav"></audio></td></tr>
-        <tr><td>2</td><td><audio controls><source src="demos/romance_gen.wav"></audio></td></tr>
-      </table>
-    </div>
+          <p align="center">Converted results</p>
 
-  </body>
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">GT</div>
+      </td>
+      <td><audio src="wavs/GT/MF-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MM-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MF-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MM-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Baseline</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/GT/MF-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio>
+      </td>
+      <td width="147"><audio src="wavs/baseline/baseline-MF-MM-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/GT/MF-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="149"><audio src="wavs/baseline/baseline-MF-MM-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Proposed</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/GT/MF-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio>
+      </td>
+      <td width="147"><audio src="wavs/proposed/proposed-MF-MM-000010.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/GT/MF-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="149"><audio src="wavs/proposed/proposed-MF-MM-005000.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+  </table>
+  <h4> Convert MM to MF: </h4>
+  <table border="1">
+    <tr>
+      <td width="120px">&nbsp;
+
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Seen utterance</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Converted results</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Unseen utterance</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Converted results</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">GT</div>
+      </td>
+      <td><audio src="wavs/GT/MM-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MF-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MM-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/GT/MF-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Baseline</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/GT/MM-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio>
+      </td>
+      <td width="147"><audio src="wavs/baseline/baseline-MM-MF-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/GT/MM-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="149"><audio src="wavs/baseline/baseline-MM-MF-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Proposed</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/GT/MM-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio>
+      </td>
+      <td width="147"><audio src="wavs/proposed/proposed-MM-MF-000013.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/GT/MM-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="149"><audio src="wavs/proposed/proposed-MM-MF-004990.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <h3>2. Convert MM and MF to Baker.</h3>
+  <h4>Reference utterances of Baker:</h4>
+  <table border="1">
+    <tr>
+      <td width="120">
+        <div align="center">Methods</div>
+      </td>
+      <td colspan="4">
+        <p align="center">Reference utterances</p>
+      </td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">GT</div>
+      </td>
+      <td width="169"><audio src="wavs/GT/baker-000005.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/GT/baker-000008.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/GT/baker-000011.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/GT/baker-000013.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+    </tr>
+  </table>
+
+  <h4>MM to Baker:</h4>
+  <table border="1">
+    <tr>
+      <td width="120">
+        <div align="center">Methods</div>
+      </td>
+      <td colspan="1">
+        <p align="center">Seen utterance</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Converted results</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Unseen utterance</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Converted results</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Baseline</div>
+      </td>
+      <td width="169"><audio src="wavs/GT/MM-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/baseline/baseline-MM-baker-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/GT/MM-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/baseline/baseline-MM-baker-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Proposed</div>
+      </td>
+      <td><audio src="wavs/GT/MM-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/proposed/proposed-MM-baker-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/GT/MM-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/proposed/proposed-MM-baker-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+    </tr>
+  </table>
+  <h4>MF to Baker:</h4>
+  <table border="1">
+    <tr>
+      <td width="120">
+        <div align="center">Methods</div>
+      </td>
+      <td colspan="1">
+        <p align="center">Seen utterance</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Converted results</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Unseen utterance</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Converted results</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Baseline</div>
+      </td>
+      <td width="169"><audio src="wavs/GT/MF-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/baseline/baseline-MF-baker-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/GT/MF-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/baseline/baseline-MF-baker-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Proposed</div>
+      </td>
+      <td><audio src="wavs/GT/MF-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/proposed/proposed-MF-baker-000020.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/GT/MF-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td><audio src="wavs/proposed/proposed-MF-baker-004986.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <h3>3. Ablation studies</h3>
+  <table border="1">
+    <tr>
+      <td width="140">
+        <div align="center">Methods</div>
+      </td>
+      <td colspan="2">
+        <div align="center">MM-to-Baker</div>
+      </td>
+      <td colspan="2">
+        <div align="center">MF-to-Baker</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center"><em>Proposed</em></div>
+      </td>
+      <td width="156"><audio src="wavs/abalation/MM-004997.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="153"><audio src="wavs/abalation/proposed-MM-baker-004997.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="149"><audio src="wavs/abalation/MF-004998.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="173"><audio src="wavs/abalation/proposed-MF-baker-004998.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center"><em>-f0</em></div>
+      </td>
+      <td width="156"><audio src="wavs/abalation/MM-004997.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="153"><audio src="wavs/abalation/wo-f0-MM-baker-004997.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="149"><audio src="wavs/abalation/MF-004998.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="173"><audio src="wavs/abalation/wo-f0-MF-baker-004998.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center"><em>-vq</em></div>
+      </td>
+      <td width="156"><audio src="wavs/abalation/MM-004997.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="153"><audio src="wavs/abalation/wo-vq-MM-baker-004997_generated_e2e.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="149"><audio src="wavs/abalation/MF-004998.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+      <td width="173"><audio src="wavs/abalation/wo-vq-MF-baker-004998_generated_e2e.wav" controls="controls"> Your
+          browser does not support the audio tag. </audio></td>
+    </tr>
+  </table>
+  <p>&quot;<em>-f0</em>&quot; represents the proposed model without quantization fundamental frequency. 
+    &quot;<em>-vq</em>&quot; represents the proposed model without vector quantization layer. 
+    We can observe that &quot;<em>-f0</em>&quot; has lower naturalness, and &quot;<em>-vq</em>&quot; has lower speaker similarity.
+  </p>
+  <p>&nbsp;</p>
+
+
+</body>
+
 </html>
