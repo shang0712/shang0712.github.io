@@ -16,83 +16,530 @@
   <h3>Paper:</h3>
   <p>Paper is under review.</p>
   <h3>Abstract: </h3>
-  Recently multilingual TTS systems using only monolingual datasets have obtained significant improvement. However, the quality of cross-language speech synthesis is not comparable to the speaker's own language and often comes with a heavy foreign accent. This paper proposed a multi-speaker multi-style multi-language speech synthesis system (M3), which improves the speech quality by introducing a fine-grained style encoder and overcomes the non-authentic accent problem through cross-speaker style transfer. To avoid leaking timbre information into style encoder, we utilized a speaker conditional variational encoder and conducted adversarial speaker training using the gradient reversal layer. Then, we built a Mixture Density Network (MDN) for mapping text to extracted style vectors for each speaker. At the inference stage, cross-language style transfer could be achieved by assigning any speaker's style type in the target language. Our system uses existing speaker style and genuinely avoids foreign accents. In the MOS-speech-naturalness, the proposed method generally achieves 4.0 and significantly outperform the baseline system.  <hr>
-  <p>&nbsp;</p>
-  <strong>Our training data includes <font color="red">six speakers</font>, covering three languages. There are three speakers from <font color="red">mandarin</font> (spk1, spk2, spk3), 
-    two from <font color="red">English</font> (spk4, spk5), and one from <font color="red">German</font> (spk6). 
-    Among them, spk4 speaks with an <font color="red">Indian</font> accent. spk3 and spk5 are male speakers. We extract <font color="red">style</font> from each speaker</strong>
+  In this paper, we unify streaming and non-streaming Text-to-Speech (TTS) and voice conversion (VC) in one model. As the two main tasks of speech synthesis, TTS and VC are widely used in our life. Non-streaming generation can greatly improve the speed of synthesis. However, in some real time scenarios, the ability to streaming generation is critical. For more flexibility, we have unified streaming and non-streaming generation into one model, with support for both TTS and VC. We developed over self-attention based parallel TTS framework. By introducing a Mel- spectrum encoder to realize the voice conversion, and by using the conditional GAN in training to improve the quality of synthesis. In order to unify streaming and non-streaming generation, we propose a chunk-based attention strategy to arbitrarily control the context length on the right, and set different chunks sizes for the encoder and decoder to match the characteristics of different time scales. At the inference, the inference latency can be easily controlled by changing the chunk size. Experiments show that unifying TTS and VC into one model does not harm the effect of either subtask. In addition, streaming test shows that streaming TTS are able to approach the non-streaming effect when the delay is two words. Streaming VC has almost no loss of naturalness in the case of 200ms delay.  <p>&nbsp;</p>
+
 
   <p>&nbsp;</p>
-  <h3>Multilingual speech synthesis</h3>
-  <h4> Baseline: </h4>
+  <h3>Our models are trained using VCTK corpus. (5 utterances randomly chosen from the test set) </h3>
+  <h4> Female (p225) to Male (p232): </h4>
   <table border="1">
     <tr>
-      <td>
-        <div align="center">Source language\Target language</div>
+      <td rowspan="2">
+        <div align="center">Source utterance</div>
       </td>
+      <td rowspan="2">
+        <blockquote>
+
+          <p align="center">Target timbre</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Non-stream</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Non-stream + condition GAN</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Stream</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Stream + condition GAN</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">CN</p>
+          <p align="center">TTS</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">EN</p>
+          <p align="center">VC</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">DE</p>
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
 
         </blockquote>
       </td>
     </tr>
     <tr>
-      <td>
-        <div align="center">CN</div>
-      </td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/baseline/150001_0_0_0_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/source/0_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/target/0_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/0_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/baseline/150024_0_1_7_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/0_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/baseline/150025_0_2_8_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/0_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/0_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/0_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">EN</div>
-      </td>
-      <td width="149">
-        <audio src="wavs/Multilingual_speech_synthesis/baseline/150001_7_0_0_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/source/1_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/target/1_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/1_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/baseline/150024_7_1_7_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/1_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/baseline/150025_7_2_8_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/1_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">DE</div>
+      <td><audio src="wavs/p225-p232/source/2_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/target/2_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p225-p232/source/3_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/target/3_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p225-p232/source/4_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/target/4_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/non-stream ttsvc cgan/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p225-p232/stream ttsvc cgan/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+  </table>
+
+  <h4> Male (p232) to Female (p225): </h4>
+  <table border="1">
+    <tr>
+      <td rowspan="2">
+        <div align="center">Source utterance</div>
       </td>
-      <td width="149">
-        <audio src="wavs/Multilingual_speech_synthesis/baseline/150001_8_0_0_generated_e2e.wav" controls="controls">
+      <td rowspan="2">
+        <blockquote>
+
+          <p align="center">Target timbre</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Non-stream</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Non-stream + condition GAN</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Stream</p>
+
+        </blockquote>
+      </td>
+      <td colspan="2">
+        <blockquote>
+
+          <p align="center">Stream + condition GAN</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">TTS</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">VC</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p232-p225/source/0_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/target/0_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/0_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/baseline/150024_8_1_7_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/0_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/baseline/150025_8_2_8_generated_e2e.wav" controls="controls">
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/0_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/0_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/0_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p232-p225/source/1_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/target/1_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/1_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/1_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p232-p225/source/2_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/target/2_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/2_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/2_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p232-p225/source/3_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/target/3_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/3_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/3_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/p232-p225/source/4_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/target/4_source_generated_e2e.wav" controls="controls">
+        Your browser does not support the audio tag.
+      </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+        <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/non-stream ttsvc cgan/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc/4_converted_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/4_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/p232-p225/stream ttsvc cgan/4_converted_generated_e2e.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
