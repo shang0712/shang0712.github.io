@@ -502,6 +502,176 @@
     </tr>
   </table>
 
+  <h3>Impact of future length to iTTS: (Note: For text encoder, the length of present is 1 word and we utilized whole history.)</h3>
+  <h4>Female (p228): </h4>
+  <table border="1">
+    <tr>
+      <td>
+        <div align="center">Number of Future word</div>
+      </td>
+      <td>
+        <div align="center">0</div>
+      </td>
+      <td colspan="1">
+        <p align="center">1</p>
+      </td>
+      <td colspan="1">
+        <p align="center">2</p>
+      </td>
+      <td colspan="1">
+        <p align="center">3</p>
+      </td>
+      <td colspan="1">
+        <p align="center">4</p>
+      </td>
+      <td colspan="1">
+        <p align="center">full sentence</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Sample1</div>
+      </td>
+      <td width="169"><audio src="wavs/future/p2280/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/future/p2281/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/future/p2282/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2283/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2284/wavs/conv/0.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/stream2/p228/wavs/conv/0.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Sample2</div>
+      </td>
+      <td width="169"><audio src="wavs/future/p2280/wavs/conv/1.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/future/p2281/wavs/conv/1.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/future/p2282/wavs/conv/1.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2283/wavs/conv/1.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2284/wavs/conv/1.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/stream2/p228/wavs/conv/1.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">Sample3</div>
+      </td>
+      <td width="169"><audio src="wavs/future/p2280/wavs/conv/3.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/future/p2281/wavs/conv/3.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/future/p2282/wavs/conv/3.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2283/wavs/conv/3.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/future/p2284/wavs/conv/3.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/stream2/p228/wavs/conv/3.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+  </table>
+  <h3>Impact of latency and causal convolution: (Where the future present rate is set to 1)</h3>
+  <h4>Female (p285) to Male (p232)</h4>
+  <table border="1">
+    <tr>
+      <td rowspan="2">
+        <div align="center">Latency</div>
+      </td>
+      <td rowspan="2">
+        <div align="center">Source</div>
+      </td>
+      <td  colspan="2">
+        <div align="center">non causal convolution</div>
+      </td>
+      <td  colspan="2">
+        <div align="center">causal convolution</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">low-latency tts</div>
+      </td>
+      <td colspan="1">
+        <p align="center">low-latency vc</p>
+      </td>
+      <td>
+        <div align="center">low-latency tts</div>
+      </td>
+      <td colspan="1">
+        <p align="center">low-latency vc</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">100ms</div>
+      </td>
+      <td width="169"><audio src="wavs/latency/non-causal/p2288/wavs/trg/0_source.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/latency/non-causal/p2288/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/latency/non-causal/p2288/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p2288/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p2288/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">200ms</div>
+      </td>
+      <td width="169"><audio src="wavs/latency/non-causal/p22816/wavs/trg/0_source.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/latency/non-causal/p22816/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/latency/non-causal/p22816/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22816/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22816/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">300ms</div>
+      </td>
+      <td width="169"><audio src="wavs/latency/non-causal/p22824/wavs/trg/0_source.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/latency/non-causal/p22824/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/latency/non-causal/p22824/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22824/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22824/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">400ms</div>
+      </td>
+      <td width="169"><audio src="wavs/latency/non-causal/p22832/wavs/trg/0_source.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+      <td width="187"><audio src="wavs/latency/non-causal/p22832/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="155"><audio src="wavs/latency/non-causal/p22832/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22832/wavs/conv/0.wav" controls="controls"> Your browser does not
+          support the audio tag. </audio></td>
+      <td width="157"><audio src="wavs/latency/causal/p22832/wavs/trg/0_converted.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+  </table>
   <p>&nbsp;</p>
 </body>
 
