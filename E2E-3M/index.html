@@ -12,19 +12,18 @@
 </head>
 
 <body>
-  <h2><strong>Audio Samples from "Incorporating fine-grained style transfer for multi-speaker multi-style multi-language text-to-speech</strong>"</h2>
+  <h2><strong>Audio Samples from "End-to-End Multi-Lingual Multi-Speaker Multi-Style Text-to-Speech with Two-level Hierarchical Conditional VAE</strong>"</h2>
   <h3>Paper:</h3>
-  <p>Paper is accpeted.</p>
+  <p>Paper is under review.</p>
   <h3>Abstract: </h3>
-  Recently multilingual TTS systems using only monolingual datasets have obtained significant improvement. However, the quality of cross-language speech synthesis is not comparable to the speaker's own language and often comes with a heavy foreign accent. This paper proposed a multi-speaker multi-style multi-language speech synthesis system (M3), which improves the speech quality by introducing a fine-grained style encoder and overcomes the non-authentic accent problem through cross-speaker style transfer. To avoid leaking timbre information into style encoder, we utilized a speaker conditional variational encoder and conducted adversarial speaker training using the gradient reversal layer. Then, we built a Mixture Density Network (MDN) for mapping text to extracted style vectors for each speaker. At the inference stage, cross-language style transfer could be achieved by assigning any speaker's style type in the target language. Our system uses existing speaker style and genuinely avoids foreign accents. In the MOS-speech-naturalness, the proposed method generally achieves 4.0 and significantly outperform the baseline system.  <hr>
+  Benefits from the variational auto-encoder, truly end-to-end text-to-speech, integrating an acoustic model and a vocoder achieves higher sound quality and faster convergence. However, those end-to-end models are still problematic when extended to the multilingual setting due to unsuccessful decoupling of the timbre information. This work proposes a multilingual multi-speaker multi-style text-to-speech system by successfully disentangling the timbre, style, and content in an end-to-end manner, which improves end-to-end training based on VITS with two-level hierarchical VAEs. By combining conditional VAE into the hierarchical structure, our model can get speaker-independent multilingual pronunciation representations and phone-level style representations without the help of IPA or other disentangle techniques. Then we build a stochastic style predictor for each speaking style at the inference. Subjective human evaluations on naturalness and similarity (timbre, style) suggest that our proposed model achieves high quality comparable to natural sound at cross-language, cross-style, and code-switching synthesis.
+  <hr>
   <p>&nbsp;</p>
-  <strong>Our training data includes <font color="red">six speakers</font>, covering three languages. There are three speakers from <font color="red">mandarin</font> (spk1, spk2, spk3), 
-    two from <font color="red">English</font> (spk4, spk5), and one from <font color="red">German</font> (spk6). 
-    Among them, spk4 speaks with an <font color="red">Indian</font> accent. spk3 and spk5 are male speakers. We extract <font color="red">style</font> from each speaker</strong>
+  <strong>We evaluated proposed system with our mandarin proprietary datasets, LJspeech and subset from css10. Languages such as Chinese, English, Spanish, German, and Uighur are covered. For simplicity, we only show three most representative languages including Chinese (CH), English (EN), German (DE).</strong>
 
   <p>&nbsp;</p>
   <h3>Multilingual speech synthesis</h3>
-  <h4> Baseline: </h4>
+  <h4> VITS: </h4>
   <table border="1">
     <tr>
       <td>
@@ -97,7 +96,7 @@
         </audio></td>
     </tr>
   </table>
-  <h4> M3 w/o FSE: </h4>
+  <h4> MFH: </h4>
   <table border="1">
     <tr>
       <td>
@@ -170,7 +169,80 @@
         </audio></td>
     </tr>
   </table>
-  <h4> M3(Proposed): </h4>
+  <h4> f-MFH: </h4>
+  <table border="1">
+    <tr>
+      <td>
+        <div align="center">Source language\Target language</div>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">CN</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">EN</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">DE</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">CN</div>
+      </td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/M3/100001_0_0_0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/M3/100024_0_1_7_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/M3/100025_0_2_8_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">EN</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/Multilingual_speech_synthesis/M3/100001_7_0_0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/M3/100024_7_1_7_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/M3/100025_7_2_8_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">DE</div>
+      </td>
+      <td width="149">
+        <audio src="wavs/Multilingual_speech_synthesis/M3/100001_8_0_0_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/M3/100024_8_1_7_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/M3/100025_8_2_8_generated_e2e.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+  </table>
+  <h4> Proposed: </h4>
   <table border="1">
     <tr>
       <td>
@@ -245,52 +317,72 @@
   </table>
   <p>&nbsp;</p>
   <h3>Style transfer</h3>
-  <h4> Covering both within-language and cross-language style transfer: </h4>
+  <h4>We pick three target styles to evaluate the performance of style transfer, including Mandarin Sweet Reading (style1), Mandarin customer service (style2) and English loud reading (style3). </h4>
+  <table border="1">
+    <tr>
+      <td>
+        <div align="center">style1</div>
+      </td>
+      <td width="169"><audio src="wavs/Ablation_study/reference/150001_0_0_0.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">style2</div>
+      </td>
+      <td width="169"><audio src="wavs/Ablation_study/reference/150001_0_0_0.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">style3</div>
+      </td>
+      <td width="169"><audio src="wavs/Ablation_study/reference/150001_0_0_0.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
+    </tr>
+  </table>
+  <h4> Evaluations cover both within-language and cross-language style transfer: </h4>
   <table border="1">
     <tr>
       <td>
         <div align="center">Target style</div>
       </td>
-      <td colspan="1">
+      <td colspan="2">
         <p align="center">style1</p>
       </td>
-      <td colspan="1">
+      <td colspan="2">
         <p align="center">style2</p>
       </td>
-      <td colspan="1">
+      <td colspan="2">
         <p align="center">style3</p>
       </td>
-      <td colspan="1">
-        <p align="center">style4</p>
-      </td>
-      <td colspan="1">
-        <p align="center">style5(Indian accent)</p>
-      </td>
-      <td colspan="1">
-        <p align="center">style6</p>
-      </td>
     </tr>
     <tr>
       <td>
-        <div align="center">Source speaker\Reference audio</div>
+        <div align="center">Source timbre</div>
       </td>
-      <td width="169"><audio src="wavs/Ablation_study/reference/150001_0_0_0.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="187"><audio src="wavs/Ablation_study/reference/150008_0_0_2.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="155"><audio src="wavs/Ablation_study/reference/150015_0_0_4.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/Ablation_study/reference/150016_0_1_5.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/Ablation_study/reference/150023_0_1_7.wav" controls="controls"> Your browser does not
-        support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/Ablation_study/reference/150026_0_2_8.wav" controls="controls"> Your browser does not
-        support the audio tag. </audio></td>
+      <td colspan="1">
+        <p align="center">Proposed</p>
+      </td>
+      <td colspan="1">
+        <p align="center">MFH</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Proposed</p>
+      </td>
+      <td colspan="1">
+        <p align="center">MFH</p>
+      </td>
+      <td colspan="1">
+        <p align="center">Proposed</p>
+      </td>
+      <td colspan="1">
+        <p align="center">MFH</p>
+      </td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk1</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_0_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -305,9 +397,8 @@
         support the audio tag. </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk2</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_2_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_2_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -322,9 +413,8 @@
         support the audio tag. </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk3</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_4_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_4_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -339,9 +429,8 @@
         support the audio tag. </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk4</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_5_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_5_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -356,9 +445,8 @@
         support the audio tag. </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk5</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_7_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_7_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -373,9 +461,8 @@
         support the audio tag. </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">Spk6</div>
-      </td>
+      <td width="169"><audio src="wavs/Style_transfer/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
+        support the audio tag. </audio></td>
       <td width="169"><audio src="wavs/Style_transfer/100001_8_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
       <td width="187"><audio src="wavs/Style_transfer/100008_8_0_2_generated_e2e.wav" controls="controls"> Your browser does not
@@ -391,23 +478,24 @@
     </tr>
   </table>
   <p>&nbsp;</p>
-  <h3>Ablation study for style encoder</h3>
+  <h3>Code-switching synthesis</h3>
+  <h4>Leveraging a multilingual synonym map, we generate code-switching samples by randomly translating words of mono-lingual texts to other languages.</h4>
   <table border="1">
     <tr>
       <td>
-        <div align="center">Target style</div>
+        <div align="center">Methods</div>
       </td>
       <td colspan="1">
-        <p align="center">style1</p>
+        <p align="center">另外 还要 remind 他们 在 开始 的 时候 慢 一点 ， 别 撞到 护栏 上。</p>
       </td>
       <td colspan="1">
-        <p align="center">style2</p>
+        <p align="center">我 不 想 找 个 老是 跟 其他 男生 Partnersuche 的 feste Freundin。</p>
       </td>
       <td colspan="1">
-        <p align="center">style3(male)</p>
+        <p align="center">I usually calm down first and then 想想 about what made me 生气.</p>
       </td>
       <td colspan="1">
-        <p align="center">style4</p>
+        <p align="center">I don not want to have a feste Freundin who is always Partnersuche other guys.</p>
       </td>
       <td colspan="1">
         <p align="center">style5(Indian accent)</p>
@@ -418,7 +506,7 @@
     </tr>
     <tr>
       <td>
-        <div align="center">Reference audio</div>
+        <div align="center">VITS</div>
       </td>
       <td width="169"><audio src="wavs/Ablation_study/reference/150001_0_0_0.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
@@ -435,7 +523,7 @@
     </tr>
     <tr>
       <td>
-        <div align="center">M3</div>
+        <div align="center">MFH</div>
       </td>
       <td width="169"><audio src="wavs/Ablation_study/M3/100001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
@@ -452,7 +540,7 @@
     </tr>
     <tr>
       <td>
-        <div align="center">-adversial speaker training</div>
+        <div align="center">f-MFH</div>
       </td>
       <td width="169"><audio src="wavs/Ablation_study/-ad_speaker/80001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
@@ -469,7 +557,7 @@
     </tr>
     <tr>
       <td>
-        <div align="center">-speaker condition</div>
+        <div align="center">Proposed</div>
       </td>
       <td width="169"><audio src="wavs/Ablation_study/-speaker_condition/80001_0_0_0_generated_e2e.wav" controls="controls"> Your browser does not
           support the audio tag. </audio></td>
@@ -482,50 +570,6 @@
       <td width="157"><audio src="wavs/Ablation_study/-speaker_condition/80023_0_1_7_generated_e2e.wav" controls="controls"> Your browser does not
         support the audio tag. </audio></td>
       <td width="157"><audio src="wavs/Ablation_study/-speaker_condition/80026_0_2_8_generated_e2e.wav" controls="controls"> Your browser does not
-        support the audio tag. </audio></td>
-    </tr>
-  </table>
-  <p>&nbsp;</p>
-  <h3>Performance of style predictor against the number of training samples</h3>
-  <table border="1">
-    <tr>
-      <td>
-        <div align="center">Number of training samples</div>
-      </td>
-      <td>
-        <div align="center">5</div>
-      </td>
-      <td colspan="1">
-        <p align="center">10</p>
-      </td>
-      <td colspan="1">
-        <p align="center">50</p>
-      </td>
-      <td colspan="1">
-        <p align="center">100</p>
-      </td>
-      <td colspan="1">
-        <p align="center">200</p>
-      </td>
-      <td colspan="1">
-        <p align="center">2000</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">Generated audio</div>
-      </td>
-      <td width="169"><audio src="wavs/style_predictor/5.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="187"><audio src="wavs/style_predictor/10.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="155"><audio src="wavs/style_predictor/50.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/style_predictor/100.wav" controls="controls"> Your browser does not
-          support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/style_predictor/200.wav" controls="controls"> Your browser does not
-        support the audio tag. </audio></td>
-      <td width="157"><audio src="wavs/style_predictor/7_generated_e2e.wav" controls="controls"> Your browser does not
         support the audio tag. </audio></td>
     </tr>
   </table>
