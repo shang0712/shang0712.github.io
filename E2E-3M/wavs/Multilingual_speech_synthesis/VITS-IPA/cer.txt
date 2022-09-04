@@ -1,0 +1,80 @@
+transfer.tim_0_sty_0_utt_0.wav|大象发会马戏演员的太常跳芭蕾舞说的很真身体爬严密防范拉拉从背后袭击|大象发挥马戏演员的特长，跳芭蕾舞似的横着身体跑，严密防范拉拉从背后袭击。|7.5|165
+transfer.tim_0_sty_0_utt_1.wav|想必是管库房的观念是直让我说跑到泥潭里头秘吃吃饱了后拉屎在蜂蜜里面|想必是管库房的官吏失职，让老鼠跑到蜜坛里偷蜜吃，吃饱了后拉屎在蜂蜜里面。|8.9947|170
+transfer.tim_0_sty_0_utt_2.wav|被被迫在欧洲君主制度和东方专制制度铁蹄下呻吟这道数万劳苦大众求佛|为被迫在欧洲君主制度和东方专制制度铁蹄下呻吟着的数万劳苦大众求福。|2.5641|175
+transfer.tim_0_sty_0_utt_3.wav|小智小智要脸的无奈中人一生既想射出万道金光远胜亲切都被照得一片铜梁|烧着烧着，炼丹炉内骤然一声巨响，射出万道金光，远山近切都被照得一片通亮。|21.7391|175
+transfer.tim_0_sty_0_utt_4.wav|年会长的有孔雀河津樱不只鲜花有蝴蝶和蜂鸟打立音乐由波浪和小心演奏|宴会场地由孔雀和金莺布置，鲜花由蝴蝶和蜂鸟打理，音乐由波浪和小溪演奏。|6.6327|165
+transfer.tim_0_sty_1_utt_0.wav|part5陪外是玩滑梯|卡尔普陪外孙玩滑梯。|40.3846|44
+transfer.tim_0_sty_1_utt_1.wav|贾雨村严别在拥抱我|假语村言别再拥抱我。|10.3448|48
+transfer.tim_0_sty_1_utt_2.wav|宝马太瓜菠萝拉掉单元稹动问他|宝马配挂跛骡鞍，貂蝉怨枕董翁榻。|19.7674|74
+transfer.tim_0_sty_1_utt_3.wav|邓小平与撒切尔会晤|邓小平与撒切尔会晤。|0.0|43
+transfer.tim_0_sty_1_utt_4.wav|老虎幼崽于宠物犬玩耍|老虎幼崽与宠物犬玩耍。|3.2258|54
+transfer.tim_0_sty_2_utt_0.wav|present in the only sense with which we are presently so yes I was from Lost is not from Volga.|Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition|50.0|139
+transfer.tim_0_sty_2_utt_1.wav|Indian comparatively Mara|in being comparatively modern.|35.1351|27
+transfer.tim_0_sty_2_utt_2.wav|all the Chinese to confessions from what blocks Fenway it didn't release for centuries before the Netherlands by similar process|For although the Chinese took impressions from wood blocks engraved in relief for centuries before the woodcutters of the Netherlands, by a similar process|29.1457|138
+transfer.tim_0_sty_2_utt_3.wav|Medusa blocktops which were the immediate predecessors of the trip find it.|produced the block books, which were the immediate predecessors of the true printed book,|23.1481|77
+transfer.tim_0_sty_2_utt_4.wav|the invention of movable metal letters in the middle of the fifteenth Century it may justly considered that's the invention of the printing|the invention of movable metal letters in the middle of the fifteenth century may justly be considered as the invention of the art of printing.|13.2597|129
+transfer.tim_0_sty_3_utt_0.wav|Annette hat Avalon Kardashian japanisches Mädchen sitzend und Lebenszeiten muss|Hanake hatte allen Körperschmuck, den ein japanisches Mädchen sitzend, trippelnd und liegend zeigen muß,|41.5385|96
+transfer.tim_0_sty_3_utt_1.wav|und zu den weiblichen Schönheiten der Vergänglichkeit gezählt zu werden wir halt wieder und sie eine reiherfeder|um zu den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden. Ihr Hals war biegsam wie eine Reiherfeder,|18.5185|114
+transfer.tim_0_sty_3_utt_2.wav|ja eine kurze ihr Flügel wenn es noch nicht pflücken Sperlings dass ihr auf der Matte und bereitet ihren Tee|ihre Arme kurz wie die Flügel eines noch nicht flüggen Sperlings. Saß sie auf der Matte und bereitete ihren Tee,|22.449|108
+transfer.tim_0_sty_3_utt_3.wav|so arbeitete sie vorsichtig wie unterwassergras hören Sie bei uns mit ihrer inneren auf den hohen Holzschuhe zum Theater|so arbeitete sie vorsichtig wie unter einer Glasglocke. Ging sie abends mit ihrer Dienerin auf den hohen Holzschuhen zum Theater,|20.9302|125
+transfer.tim_0_sty_3_utt_4.wav|so war sie unauffällig das hätte sich ihr Körper mit der Sonne zur Ruhe gelegt|so war sie unauffällig, als hätte sich ihr Körper mit der Sonne zur Ruhe gelegt,|1.8349|78
+transfer.tim_1_sty_0_utt_0.wav|大象发困难戏演员的特长涛峇鲁市的行政身体跑严密防范拉拉从背后袭击|大象发挥马戏演员的特长，跳芭蕾舞似的横着身体跑，严密防范拉拉从背后袭击。|15.0|165
+transfer.tim_1_sty_0_utt_1.wav|想必须管库房的观念是只让老鼠跑到面谈也通密吃吃饱了后拉屎在蜂蜜里面|想必是管库房的官吏失职，让老鼠跑到蜜坛里偷蜜吃，吃饱了后拉屎在蜂蜜里面。|10.0529|170
+transfer.tim_1_sty_0_utt_2.wav|baby破甲洲君主制度和东风专制制度铁蹄下声音哲的书范劳苦大众求佛|为被迫在欧洲君主制度和东方专制制度铁蹄下呻吟着的数万劳苦大众求福。|15.3846|175
+transfer.tim_1_sty_0_utt_3.wav|小姐小姐艳登陆那就任一声巨响射出万道金光远山金切都被罩的一篇铜梁|烧着烧着，炼丹炉内骤然一声巨响，射出万道金光，远山近切都被照得一片通亮。|21.256|175
+transfer.tim_1_sty_0_utt_4.wav|宴会场地有孔雀河津津不知鲜花有蝴蝶和蜂鸟打立音乐由波浪和小汐演奏|宴会场地由孔雀和金莺布置，鲜花由蝴蝶和蜂鸟打理，音乐由波浪和小溪演奏。|5.102|165
+transfer.tim_1_sty_1_utt_0.wav|part5陪外孙玩滑梯|卡尔普陪外孙玩滑梯。|32.6923|44
+transfer.tim_1_sty_1_utt_1.wav|贾雨村严别在拥抱我|假语村言别再拥抱我。|10.3448|48
+transfer.tim_1_sty_1_utt_2.wav|宝马配挂波罗安掉禅院诊董问他|宝马配挂跛骡鞍，貂蝉怨枕董翁榻。|6.9767|74
+transfer.tim_1_sty_1_utt_3.wav|邓小平与撒切尔会晤|邓小平与撒切尔会晤。|0.0|43
+transfer.tim_1_sty_1_utt_4.wav|老虎幼崽于宠物犬玩耍|老虎幼崽与宠物犬玩耍。|3.2258|54
+transfer.tim_1_sty_2_utt_0.wav|printing in the only sense which we are presents the song Death was from those gift not some lowly blocks and Priscilla presented in the exhibition|Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition|32.4742|139
+transfer.tim_1_sty_2_utt_1.wav|Indian comparatively model|in being comparatively modern.|21.6216|27
+transfer.tim_1_sty_2_utt_2.wav|football do the Chinese took Impressions from with blocks and great relief for centuries before the Netherlands by similar classes|For although the Chinese took impressions from wood blocks engraved in relief for centuries before the woodcutters of the Netherlands, by a similar process|30.1508|138
+transfer.tim_1_sty_2_utt_3.wav|reduce the block books which were the immediate predecessors of the group rented.|produced the block books, which were the immediate predecessors of the true printed book,|12.037|77
+transfer.tim_1_sty_2_utt_4.wav|the intention of movable middle letters in the middle of the fifteenth Century may justly be considered that's the inventions of you love 20|the invention of movable metal letters in the middle of the fifteenth century may justly be considered as the invention of the art of printing.|14.3646|129
+transfer.tim_1_sty_3_utt_0.wav|Kanake hatte allen Körperschmuck Dienst ein japanisches Mädchen sitzen Kribbeln dunklen Zeiten muss|Hanake hatte allen Körperschmuck, den ein japanisches Mädchen sitzend, trippelnd und liegend zeigen muß,|19.2308|96
+transfer.tim_1_sty_3_utt_1.wav|und zu den Bächen Schönheiten der Vergänglichkeit wird zählt zu werden wir halt sabiti an die eine Reihe Feder|um zu den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden. Ihr Hals war biegsam wie eine Reiherfeder,|23.4568|114
+transfer.tim_1_sty_3_utt_2.wav|Japaner kurz wie die Flügel eines noch nicht folgen Stalins sie Hasi auf der Latte und bereitet ihren p|ihre Arme kurz wie die Flügel eines noch nicht flüggen Sperlings. Saß sie auf der Matte und bereitete ihren Tee,|22.449|108
+transfer.tim_1_sty_3_utt_3.wav|Sohn arbeitete sie vorsichtig die unter einer Glasglocke gehen sie abends mit ihrer Dienerin auf den hohen Rollschuhen zum Theater|so arbeitete sie vorsichtig wie unter einer Glasglocke. Ging sie abends mit ihrer Dienerin auf den hohen Holzschuhen zum Theater,|6.3953|125
+transfer.tim_1_sty_3_utt_4.wav|super sie und doch sehe ich das hätte sich ihr Körper mit der Sonne zur überlegt|so war sie unauffällig, als hätte sich ihr Körper mit der Sonne zur Ruhe gelegt,|28.4404|78
+transfer.tim_2_sty_0_utt_0.wav|大象发挥买是演员的特长条白武士的行军神题跑严密防范了从背后袭击|大象发挥马戏演员的特长，跳芭蕾舞似的横着身体跑，严密防范拉拉从背后袭击。|19.5|165
+transfer.tim_2_sty_0_utt_1.wav|想必是馆客房的观念是只让我数跑到泥潭里头没吃翅膀的好那是在蜂蜜蜜|想必是管库房的官吏失职，让老鼠跑到蜜坛里偷蜜吃，吃饱了后拉屎在蜂蜜里面。|20.1058|170
+transfer.tim_2_sty_0_utt_2.wav|被迫在彭州金主制度和东方专制制度的体现声音这个说法和口袋中充分|为被迫在欧洲君主制度和东方专制制度铁蹄下呻吟着的数万劳苦大众求福。|29.2308|175
+transfer.tim_2_sty_0_utt_3.wav|小姐小姐应该不被主人一生及教师出版的金光眼神经切都被罩的一天通辽|烧着烧着，炼丹炉内骤然一声巨响，射出万道金光，远山近切都被照得一片通亮。|35.7488|175
+transfer.tim_2_sty_0_utt_4.wav|淫秽场的有孔雀和静音不觉晓花有蝴蝶和蜂鸟蛋里面有拨号和小琴演奏|宴会场地由孔雀和金莺布置，鲜花由蝴蝶和蜂鸟打理，音乐由波浪和小溪演奏。|21.4286|165
+transfer.tim_2_sty_1_utt_0.wav|P2P外搜玩滑梯|卡尔普陪外孙玩滑梯。|40.3846|44
+transfer.tim_2_sty_1_utt_1.wav|贾雨村闫蝶在拥抱我|假语村言别再拥抱我。|12.069|48
+transfer.tim_2_sty_1_utt_2.wav|宝马K括狗乱叫陈燕振动盘|宝马配挂跛骡鞍，貂蝉怨枕董翁榻。|36.0465|74
+transfer.tim_2_sty_1_utt_3.wav|邓小平与撒切尔会晤|邓小平与撒切尔会晤。|0.0|43
+transfer.tim_2_sty_1_utt_4.wav|老虎幼崽于宠物犬晚上|老虎幼崽与宠物犬玩耍。|12.9032|54
+transfer.tim_2_sty_2_utt_0.wav|printing in the only sense with which we are at present concerned differs from most if not from all the arts-and-crafts represented in the exhibition|Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition|1.0309|139
+transfer.tim_2_sty_2_utt_1.wav|camping comparatively Mara|in being comparatively modern.|37.8378|27
+transfer.tim_2_sty_2_utt_2.wav|for although the Chinese took Impressions from wood blocks engraved in relief for centuries before the woodpeckers of the Netherlands by a similar process|For although the Chinese took impressions from wood blocks engraved in relief for centuries before the woodcutters of the Netherlands, by a similar process|2.0101|138
+transfer.tim_2_sty_2_utt_3.wav|reduce the block books which were the immediate predecessors of the true printed book|produced the block books, which were the immediate predecessors of the true printed book,|2.7778|77
+transfer.tim_2_sty_2_utt_4.wav|the invention of movable metal letters in the middle of a fifteenth-century may justly be considered as the invention of the art of printing|the invention of movable metal letters in the middle of the fifteenth century may justly be considered as the invention of the art of printing.|2.2099|129
+transfer.tim_2_sty_3_utt_0.wav|Kanake hatte allen Körperschmuck den ein japanisches Mädchen sitzend tippen pogegen zeigen muss|Hanake hatte allen Körperschmuck, den ein japanisches Mädchen sitzend, trippelnd und liegend zeigen muß,|12.3077|96
+transfer.tim_2_sty_3_utt_1.wav|kommst du den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden ja es war besser haben die eine reiherfeder|um zu den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden. Ihr Hals war biegsam wie eine Reiherfeder,|16.6667|114
+transfer.tim_2_sty_3_utt_2.wav|ihr Arme kurz wie die Flügel eines noch nicht folgen Sperlings dass sie auf der Matte und bereitete ihrem Tee|ihre Arme kurz wie die Flügel eines noch nicht flüggen Sperlings. Saß sie auf der Matte und bereitete ihren Tee,|7.483|108
+transfer.tim_2_sty_3_utt_3.wav|so arbeitete sie vorsichtig wie unter einer Glasglocke ging sie abends mit ihrer Dienerin auf den hohen Holzschuhe zum Theater|so arbeitete sie vorsichtig wie unter einer Glasglocke. Ging sie abends mit ihrer Dienerin auf den hohen Holzschuhen zum Theater,|0.5814|125
+transfer.tim_2_sty_3_utt_4.wav|so war sie um noch fähig als hätte sich ihr Körper mit der Sonne zur Ruhe gelegt|so war sie unauffällig, als hätte sich ihr Körper mit der Sonne zur Ruhe gelegt,|7.3394|78
+transfer.tim_3_sty_0_utt_0.wav|该算法会买是演员的腿朝着芭蕾舞碎的行锥形旗袍颜立方分了拉从背后袭击|大象发挥马戏演员的特长，跳芭蕾舞似的横着身体跑，严密防范拉拉从背后袭击。|30.0|165
+transfer.tim_3_sty_0_utt_1.wav|上的血管库房的观念是职业让老鼠跑到牧场里透明确确保温后拉屎咋放10年|想必是管库房的官吏失职，让老鼠跑到蜜坛里偷蜜吃，吃饱了后拉屎在蜂蜜里面。|35.4497|170
+transfer.tim_3_sty_0_utt_2.wav|被被迫在欧洲君主制度和东方专制制度解体家乡迎接到主板老口袋中搜索|为被迫在欧洲君主制度和东方专制制度铁蹄下呻吟着的数万劳苦大众求福。|24.1026|175
+transfer.tim_3_sty_0_utt_3.wav|小姐小姐点灯屋内众人一冲击销售出版道经过原声亲切都背着的一片铜梁|烧着烧着，炼丹炉内骤然一声巨响，射出万道金光，远山近切都被照得一片通亮。|37.1981|175
+transfer.tim_3_sty_0_utt_4.wav|宴会场地有空间和经营部职业消化有蝴蝶和蜂鸟大利音乐由波浪和小希艳照|宴会场地由孔雀和金莺布置，鲜花由蝴蝶和蜂鸟打理，音乐由波浪和小溪演奏。|15.3061|165
+transfer.tim_3_sty_1_utt_0.wav|part5陪外资完话题|卡尔普陪外孙玩滑梯。|50.0|44
+transfer.tim_3_sty_1_utt_1.wav|加一村岩叠在拥抱我|假语村言别再拥抱我。|10.3448|48
+transfer.tim_3_sty_1_utt_2.wav|宝马可以括剥夺案调查验证动态|宝马配挂跛骡鞍，貂蝉怨枕董翁榻。|34.8837|74
+transfer.tim_3_sty_1_utt_3.wav|邓小平以发起来会晤|邓小平与撒切尔会晤。|20.3704|43
+transfer.tim_3_sty_1_utt_4.wav|老虎又在一重50000000刷|老虎幼崽与宠物犬玩耍。|77.4194|54
+transfer.tim_3_sty_2_utt_0.wav|printing in the only sense with which we are peasant concerned differs from most if not found all the arts-and-crafts represented in the exhibition|Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition|7.2165|139
+transfer.tim_3_sty_2_utt_1.wav|and being comparatively modern|in being comparatively modern.|8.1081|27
+transfer.tim_3_sty_2_utt_2.wav|although the Chinese took Impressions from wood blocks and I am relief for centuries before the what others are the Netherlands by a civil process|For although the Chinese took impressions from wood blocks engraved in relief for centuries before the woodcutters of the Netherlands, by a similar process|17.0854|138
+transfer.tim_3_sty_2_utt_3.wav|reduce the block books which were the immediate predecessors of the troupe printed book|produced the block books, which were the immediate predecessors of the true printed book,|3.7037|77
+transfer.tim_3_sty_2_utt_4.wav|the invention of movable metal Methodist in the middle of the fifteenth Century may justly be considered as the invention of the art of printing|the invention of movable metal letters in the middle of the fifteenth century may justly be considered as the invention of the art of printing.|4.4199|129
+transfer.tim_3_sty_3_utt_0.wav|Anacker hatte allen Körperschmuck den ein japanisches Mädchen sitzend Dritteln und Wiegen zeigen muss|Hanake hatte allen Körperschmuck, den ein japanisches Mädchen sitzend, trippelnd und liegend zeigen muß,|13.8462|96
+transfer.tim_3_sty_3_utt_1.wav|und zu den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden wir halt varbitsa haben wie eine Reihe Feder|um zu den göttlichen Schönheiten der Vergänglichkeit gezählt zu werden. Ihr Hals war biegsam wie eine Reiherfeder,|16.6667|114
+transfer.tim_3_sty_3_utt_2.wav|ihre Arme kurz wie die Flügel eines noch nicht Pflügen Stalins saß sie auf der Matte und bereitet die ihren Tee|ihre Arme kurz wie die Flügel eines noch nicht flüggen Sperlings. Saß sie auf der Matte und bereitete ihren Tee,|12.2449|108
+transfer.tim_3_sty_3_utt_3.wav|so arbeitete sie vorsichtig wie unter einer Glasglocke ging sie abends mit ihrer Dienerin auf den hohen Holzschuhe zum Theater|so arbeitete sie vorsichtig wie unter einer Glasglocke. Ging sie abends mit ihrer Dienerin auf den hohen Holzschuhen zum Theater,|0.5814|125
+transfer.tim_3_sty_3_utt_4.wav|so war sie unauffällig als hätte sich der Karte mit der Sonne zur Ruhe gelegt|so war sie unauffällig, als hätte sich ihr Körper mit der Sonne zur Ruhe gelegt,|6.422|78
