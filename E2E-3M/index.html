@@ -134,7 +134,7 @@
     </tr>
   </table>
 
-  <h4> VITS-noshare: </h4>
+  <h4> SANE-TTS: </h4>
   <table border="1">
     <tr>
       <td>
@@ -356,7 +356,7 @@
     </tr>
   </table>
 
-  <h4> Proposed: </h4>
+  <h4> Proposed (E2E-3M): </h4>
   <table border="1">
     <tr>
       <td>
@@ -890,20 +890,20 @@
   </table>
 
   <h3>Ablation Study (Style transfer)</h3>
-  <h4> Ground Truth: </h4>
+  <h4> Timbre: </h4>
   <table border="1">
     <tr>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">Male</p>
+          <p align="center">Female</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">Female</p>
+          <p align="center">Male</p>
 
         </blockquote>
       </td>
@@ -912,86 +912,155 @@
       <td><audio src="wavs/Reference_Style/enrollment.tim_0_utt_4.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/Reference_Style/LJ050-0278.wav" controls="controls">
+      <td><audio src="wavs/Reference_Style/jqz.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
+
     </tr>
   </table>
 
-  <h4> VITS (IPA): </h4>
+  <h4> From male to female: </h4>
   <table border="1">
     <tr>
       <td>
-        <div align="center">Source language\Target language</div>
+        <div align="center">Source style\Transfered</div>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">CN</p>
+          <p align="center">E2E-3M</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">EN</p>
+          <p align="center">Phone-VAE</p>
 
         </blockquote>
       </td>
       <td colspan="1">
         <blockquote>
 
-          <p align="center">DE</p>
+          <p align="center">Frame-VAE</p>
 
         </blockquote>
       </td>
     </tr>
     <tr>
-      <td>
-        <div align="center">CN</div>
-      </td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_0_sty_0_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_2_utt_0.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_2_utt_0.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_0_sty_2_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_0_sty_2_utt_0.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_0_sty_3_utt_3.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">EN</div>
-      </td>
-      <td width="149">
-        <audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_2_sty_0_utt_3.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
-      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_2_sty_2_utt_3.wav" controls="controls">
-          Your browser does not support the audio tag.
-        </audio></td>
-      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_2_sty_3_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_0_sty_2_utt_0.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
     <tr>
-      <td>
-        <div align="center">DE</div>
-      </td>
-      <td width="149">
-        <audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_3_sty_0_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_2_utt_3.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_2_utt_3.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="147"><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_3_sty_2_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_0_sty_2_utt_3.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
-      <td width="151"><audio src="wavs/Multilingual_speech_synthesis/VITS-IPA/transfer.tim_3_sty_3_utt_3.wav" controls="controls">
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_0_sty_2_utt_3.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_2_utt_4.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_2_utt_4.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_0_sty_2_utt_4.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_0_sty_2_utt_4.wav" controls="controls">
           Your browser does not support the audio tag.
         </audio></td>
     </tr>
   </table>
 
+  <h4> From female to male: </h4>
+  <table border="1">
+    <tr>
+      <td>
+        <div align="center">Source style\Transfered</div>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">E2E-3M</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Phone-VAE</p>
+
+        </blockquote>
+      </td>
+      <td colspan="1">
+        <blockquote>
+
+          <p align="center">Frame-VAE</p>
+
+        </blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_0_utt_0.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_0_utt_0.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_2_sty_0_utt_0.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_2_sty_0_utt_0.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_0_utt_1.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_0_utt_1.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_2_sty_0_utt_1.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_2_sty_0_utt_1.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
+    <tr>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_0_sty_0_utt_3.wav" controls="controls">
+        Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Multilingual_speech_synthesis/E2E-3M/transfer.tim_2_sty_0_utt_3.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/phone_vae/transfer.tim_2_sty_0_utt_3.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+      <td><audio src="wavs/Style_transfer/frame_vae/transfer.tim_2_sty_0_utt_3.wav" controls="controls">
+          Your browser does not support the audio tag.
+        </audio></td>
+    </tr>
   <p>&nbsp;</p>
 </body>
 
