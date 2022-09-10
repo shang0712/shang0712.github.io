@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.kecl.ntt.co.jp/people/kaneko.takuhiro/projects/istftnet/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-E4F1PLHNPG');
+    </script>
+    
+    <meta name="author" content="Takuhiro Kaneko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./iSTFTNet_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>iSTFTNet</title>
+  <style type="text/css">
+    h3 {
+	padding-top: 20px;
+    }
+    h4 {
+	padding-top: 20px;
+    }
+    table {
+	width: 100%;
+	table-layout: fixed;
+    }
+    th {
+	text-align: center;
+	vertical-align: middle;
+    }
+    td {
+	text-align: center;
+	vertical-align: middle;
+    }
+    ol.reference li {
+	list-style-type: none;
+	counter-increment: cnt;
+	text-indent:-1.6em;
+    }
+    ol.reference li::before {
+	display: marker;
+	content: "[" counter(cnt) "]";
+    }
+    #pink{
+	color: #DC1D79;
+    }
+    audio {
+	width: 100%;
+	height: 24px;
+	vertical-align: middle;
+    }
+    .left {
+	text-align: left;
+    }
+    .thumbnailshadow {
+	filter: drop-shadow(5px 5px 5px #AAAAAA);
+    }
+  </style></head>
+
+  
+
+  <body data-new-gr-c-s-check-loaded="14.1079.0" data-gr-ext-installed="">
+    <header>
+      <div class="text-center p-4">
+	<h1 class="display-1">Aliasing Artifacts</h1>
+	<p class="lead">
+	  Analysis and Solution to Aliasing Artifacts in Neural Waveform Generation Models
+	</p>
+	<p>
+	  Submitted to APPLIED ACOUSTICS<br>
+	</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+
+	<div class="row" id="abstract">
+	  <div class="col-md-12">
+	    <h3 class="text-muted">Abstract</h3>
+	    <div>
+	      <p>
+		In recent years, with the application of deep learning in speech synthesis, waveform generation models based on generative adversarial networks achieve high quality comparable to natural speech. In most waveform generators, neural upsampling unit plays an essential role as it is employed to upsample acoustic features to sample level. However, we observe significant aliasing artifacts in the generated speech from non-idea upsampling-based waveform generators. According to the Shannon-Nyquist sampling theorem, non-ideal upsampling filters such as nearest neighbor, bilinear, subpixel or zero-padding upsampling result in aliasing. In this paper, we aim to systematically analyze how aliasing artifacts are produced in the non-idea upsampling-based waveform generators. We explore commonly used neural upsampling unit including transposed convolution, nearest neighbor interpolation and subpixel convolution in HiFi-GAN and VITS and find that the high-frequency spectral details are generated based on low-frequency structure utilizing the nonlinear transformation. But the nonlinear transformation could not perfectly eliminate the low-frequency spectral imprint and finally manifested as spectral artifacts in generated waveforms. To suppress the aliasing artifacts, we first apply a low-pass filter after upsampling layer but find significant performance drops. Experimental results indicate that the aliasing makes the training process converge faster by filling the high-frequency empty. In this regard, we propose to mix high-frequency noise into low-pass filtered features so that it can converge quicker and naturally avoid artifacts. In addition, we design an artifact-detection algorithm based on structural similarity to evaluate the effectiveness of our method.
+	      </p>
+
+	      <div class="text-center">
+		<figure class="figure">
+		  <a name="fig1"><img src="./supply/2.png" class="figure-img img-fluid" width="480"></a>
+		  <figcaption class="figure-caption">
+		    Figure 1. Aliasing artifacts in the waveform generator.
+		  </figcaption>
+		</figure>
+		<figure class="figure">
+			<a name="fig2"><img src="./supply/1.png" class="figure-img img-fluid" width="480"></a>
+			<figcaption class="figure-caption">
+			  Figure 2. Structure of proposed anti-aliasing generator.
+			</figcaption>
+		  </figure>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3 class="text-muted">Experiment results (It is encouraged to focus more on the difference of high frequency and observe the STFTs in Audition.)</h3>
+
+	    <a name="ljspeech_voc"></a>
+	    <h4 class="text-muted">I. Synthesis from ground-truth mel-spectrogram (HiFi-GAN)</h4>
+	    <ul>
+	      <li><strong>Dataset:</strong> <a href="https://keithito.com/LJ-Speech-Dataset/" class="link-dark">LJSpeech</a> </li>
+	      <li><strong>Input:</strong> Ground truth mel-spectrogram</li>
+	    </ul>
+
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Ground truth</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ001-0028.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ001-0068.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ002-0149.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ002-0157.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ002-0167.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Transposed CNN</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ002-0149_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ002-0157_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ002-0167_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">Subpixel CNN</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ002-0149_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ002-0157_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ002-0167_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">Nearest neighbor</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ002-0149_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ002-0157_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ002-0167_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">Lowpass</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/lowpass/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/lowpass//LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/lowpass//LJ002-0149_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/lowpass/LJ002-0157_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/lowpass/LJ002-0167_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">Anti-aliasing (ours)</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/anti/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/anti/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/anti/LJ002-0149_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/anti/LJ002-0157_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/anti/LJ002-0167_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+		<ul>
+			<li><strong>Dataset:</strong> <a href="http://www.openslr.org/109/" class="link-dark">HiFi(id92)</a></li>
+			<li><strong>Input:</strong> Ground truth mel-spectrogram</li>
+		  </ul>
+  
+		  <table class="table table-sm">
+			<thead>
+		  <tr>
+			<th></th>
+			<th>Sample 1</th>
+			<th>Sample 2</th>
+			<th>Sample 3</th>
+			<th>Sample 4</th>
+			<th>Sample 5</th>
+		  </tr>
+			</thead>
+			<tbody>
+		  <tr>
+			<th scope="row" class="left">Ground truth</th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/real/auntcretesemancipation_01_hill_0002.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/real/auntcretesemancipation_01_hill_0005.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/real/auntcretesemancipation_01_hill_0009.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/real/auntcretesemancipation_01_hill_0013.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/real/auntcretesemancipation_01_hill_0014.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+			</tbody>
+		  </table>
+  
+		  <table class="table table-sm">
+			<tbody>
+		  <tr>
+			<th scope="row" class="left">Transposed CNN</th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/v1/auntcretesemancipation_01_hill_0002_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/v1/auntcretesemancipation_01_hill_0005_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/v1/auntcretesemancipation_01_hill_0009_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/v1/auntcretesemancipation_01_hill_0013_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/v1/auntcretesemancipation_01_hill_0014_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+  
+		  <tr>
+			<th scope="row" class="left">Subpixel CNN</span></th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/subpixel/auntcretesemancipation_01_hill_0002_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/subpixel/auntcretesemancipation_01_hill_0005_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/subpixel/auntcretesemancipation_01_hill_0009_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/subpixel/auntcretesemancipation_01_hill_0013_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/subpixel/auntcretesemancipation_01_hill_0014_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+  
+		  <tr>
+			<th scope="row" class="left">Nearest neighbor</span></th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/nearest/auntcretesemancipation_01_hill_0002_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/nearest/auntcretesemancipation_01_hill_0005_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/nearest/auntcretesemancipation_01_hill_0009_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/nearest/auntcretesemancipation_01_hill_0013_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/nearest/auntcretesemancipation_01_hill_0014_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+  
+		  <tr>
+			<th scope="row" class="left">Lowpass</span></th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/lowpass/auntcretesemancipation_01_hill_0002_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/lowpass/auntcretesemancipation_01_hill_0005_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/lowpass/auntcretesemancipation_01_hill_0009_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/lowpass/auntcretesemancipation_01_hill_0013_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/lowpass/auntcretesemancipation_01_hill_0014_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+  
+		  <tr>
+			<th scope="row" class="left">Anti-aliasing (ours)</th>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/anti/auntcretesemancipation_01_hill_0002_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/anti/auntcretesemancipation_01_hill_0005_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/anti/auntcretesemancipation_01_hill_0009_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/anti/auntcretesemancipation_01_hill_0013_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="demo/vocoder/id92/anti/auntcretesemancipation_01_hill_0014_generated.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+			</tbody>
+		  </table>
+
+	    <a name="ljspeech_tts"></a>
+	    <h4 class="text-muted">II. Synthesis from text (VITS)</h4>
+	    <ul>
+	      <li><strong>Dataset:</strong> <a href="https://keithito.com/LJ-Speech-Dataset/" class="link-dark">LJSpeech</a> </li>
+	      <li><strong>Input:</strong> Text</li>
+	    </ul>
+	    
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Text</th>
+		  <td>
+		    <em>made certain recommendations which it believes would, if adopted,</em>
+		  </td>
+		  <td>
+		    <em>materially improve upon the procedures in effect at the time of President Kennedy's assassination and result in a substantial lessening of the danger.</em>
+		  </td>
+		  <td>
+		    <em>As has been pointed out, the Commission has not resolved all the proposals which could be made. The Commission nevertheless is confident that,</em>
+		  </td>
+		  <td>
+		    <em>with the active cooperation of the responsible agencies and with the understanding of the people of the United States in their demands upon their President,</em>
+		  </td>
+		  <td>
+		    <em>the recommendations we have here suggested would greatly advance the security of the office without any impairment of our fundamental liberties.</em>
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row" class="left">Ground truth</th>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/gt/LJ050-0274.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/gt/LJ050-0275.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/gt/LJ050-0276.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/gt/LJ050-0277.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/gt/LJ050-0278.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Transposed CNN</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">Subpixel CNN</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0274.wav" type="audio/wav">
+		      <source src="audios/VCC2SF3_30029.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0275.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0276.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0277.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0278.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Nearest neighbor</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2/LJ050-0274.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2/LJ050-0275.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2/LJ050-0276.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2/LJ050-0277.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="audios/ljspeech/tts/cfs2/LJ050-0278.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+		<tr>
+			<th scope="row" class="left">Lowpass</a></th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+		  <tr>
+			<th scope="row" class="left">Anti-aliasing (ours)</a></th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+	      </tbody>
+	    </table>
+	    <ul>
+			<li><strong>Dataset:</strong> <a href="http://www.openslr.org/109/" class="link-dark">HiFi(id92)</a> </li>
+			<li><strong>Input:</strong> Text</li>
+		  </ul>
+		  
+		  <table class="table table-sm">
+			<thead>
+		  <tr>
+			<th></th>
+			<th>Sample 1</th>
+			<th>Sample 2</th>
+			<th>Sample 3</th>
+			<th>Sample 4</th>
+			<th>Sample 5</th>
+		  </tr>
+			</thead>
+			<tbody>
+		  <tr>
+			<th scope="row" class="left">Text</th>
+			<td>
+			  <em>made certain recommendations which it believes would, if adopted,</em>
+			</td>
+			<td>
+			  <em>materially improve upon the procedures in effect at the time of President Kennedy's assassination and result in a substantial lessening of the danger.</em>
+			</td>
+			<td>
+			  <em>As has been pointed out, the Commission has not resolved all the proposals which could be made. The Commission nevertheless is confident that,</em>
+			</td>
+			<td>
+			  <em>with the active cooperation of the responsible agencies and with the understanding of the people of the United States in their demands upon their President,</em>
+			</td>
+			<td>
+			  <em>the recommendations we have here suggested would greatly advance the security of the office without any impairment of our fundamental liberties.</em>
+			</td>
+		  </tr>
+		  <tr>
+			<th scope="row" class="left">Ground truth</th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/gt/LJ050-0274.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/gt/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/gt/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/gt/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/gt/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+			</tbody>
+		  </table>
+  
+		  <table class="table table-sm">
+			<tbody>
+		  <tr>
+			<th scope="row" class="left">Transposed CNN</a></th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+  
+		  <tr>
+			<th scope="row" class="left">Subpixel CNN</span></th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0274.wav" type="audio/wav">
+				<source src="audios/VCC2SF3_30029.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2-v1-c8c8i/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+			</tbody>
+		  </table>
+  
+		  <table class="table table-sm">
+			<tbody>
+		  <tr>
+			<th scope="row" class="left">Nearest neighbor</a></th>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2/LJ050-0274.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2/LJ050-0275.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2/LJ050-0276.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2/LJ050-0277.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+			<td>
+			  <audio controls="">
+				<source src="audios/ljspeech/tts/cfs2/LJ050-0278.wav" type="audio/wav">
+				Your browser does not support the audio element.
+			  </audio>
+			</td>
+		  </tr>
+		  <tr>
+			  <th scope="row" class="left">Lowpass</a></th>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			</tr>
+			<tr>
+			  <th scope="row" class="left">Anti-aliasing (ours)</a></th>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0274.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0275.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0276.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0277.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			  <td>
+				<audio controls="">
+				  <source src="audios/ljspeech/tts/cfs2-v1/LJ050-0278.wav" type="audio/wav">
+				  Your browser does not support the audio element.
+				</audio>
+			  </td>
+			</tr>
+			</tbody>
+		  </table>
+
+      </div>
+    </main>
+
+
+<quillbot-extension-portal></quillbot-extension-portal></body><quillbot-extension-root></quillbot-extension-root><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
