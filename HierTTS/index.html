@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-E4F1PLHNPG');
+    </script>
+    
+    <meta name="author" content="Takuhiro Kaneko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aliasing artifacts</title>
+  <style type="text/css">
+    h3 {
+	padding-top: 20px;
+    }
+    h4 {
+	padding-top: 20px;
+    }
+    table {
+	width: 100%;
+	table-layout: fixed;
+    }
+    th {
+	text-align: center;
+	vertical-align: middle;
+    }
+    td {
+	text-align: center;
+	vertical-align: middle;
+    }
+    ol.reference li {
+	list-style-type: none;
+	counter-increment: cnt;
+	text-indent:-1.6em;
+    }
+    ol.reference li::before {
+	display: marker;
+	content: "[" counter(cnt) "]";
+    }
+    #pink{
+	color: #DC1D79;
+    }
+    audio {
+	width: 100%;
+	height: 24px;
+	vertical-align: middle;
+    }
+    .left {
+	text-align: left;
+    }
+    .thumbnailshadow {
+	filter: drop-shadow(5px 5px 5px #AAAAAA);
+    }
+  </style></head>
+
+  
+
+  <body data-new-gr-c-s-check-loaded="14.1079.0" data-gr-ext-installed="">
+    <header>
+      <div class="text-center p-4">
+	<h1 class="display-1">HierTTS</h1>
+	<p class="lead">
+	  HierTTS: Expressive End-to-End Text-to-Waveform using Multi-Scale Hierarchical Variational Auto-encoder
+	</p>
+	<p>
+	  Under review<br>
+	</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+
+	<div class="row" id="abstract">
+	  <div class="col-md-12">
+	    <h3 class="text-muted">Abstract</h3>
+	    <div>
+	      <p>
+			Developing a high-quality and highly expressive Chinese speech synthesis system is very challenging. Since it is very difficult to generate speech waveforms directly from text, previous work has roughly split the text-to-waveform generation process into three stages: style extraction and prediction, acoustic modeling, and vocoder. Each stage is relatively independent, and the generation process from style to acoustic features to waveform is realized step by step. In this paper, we design a multi-scale end-to-end Chinese speech synthesis system based on the acoustic and linguistic properties of speech. The method employs a hierarchical variational self-encoder approach to model the unification of the three stages and models five scales of implicit variables at the frame level, phoneme level, subword level, word level, and sentence level. The encoder encodes the speech signal from fine-grained features to coarse-grained cryptovariables step by step, while each level of fine-grained features in the decoder relies on coarse-grained cryptovariables for generation. To prevent the posterior failure of the cascaded cryptovariables, we use stepped weights for the KL scatter at different scales, and smaller weights for the cryptovariables encoding long-time information. In addition, we use a cascaded encoder and a tiny-bert pre-training model to obtain subword-level, word-level, and sentence-level semantic information. The experiments show that	      </p>
+	      <div class="text-center">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3 class="text-muted">Experiment results</h3>
+
+	    <a name="ljspeech_voc"></a>
+	    <h4 class="text-muted">I. Comparison to previous systems</h4>
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+		<tr>
+			<th scope="row" class="left">Text</th>
+			<td>
+			  <em>during the morning of November twenty-two prior to the motorcade.</em>
+			</td>
+			<td>
+			  <em>Oswald was, however, willing to discuss his contacts with Soviet authorities. He denied having any involvement with Soviet intelligence agencies</em>
+			</td>
+			<td>
+			  <em>During his Presidency, Franklin D. Roosevelt made almost four hundred journeys and traveled more than three hundred fifty thousand miles.</em>
+			</td>
+			<td>
+			  <em>No night clubs or bowling alleys, no places of recreation except the trade union dances. I have had enough.</em>
+			</td>
+			<td>
+			  <em>eleven. If I am alive and taken prisoner,</em>
+			</td>
+		  </tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Ground truth</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ001-0028.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ001-0068.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ003-0042.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ005-0108.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/real/LJ005-0234.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">FastSpeech2 + HiFi-GAN</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ003-0042_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ005-0108_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/v1/LJ005-0234_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">MultiGST + HiFi-GAN</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ003-0042_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ005-0108_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/subpixel/LJ005-0234_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">PortaSpeech + HiFi-GAN</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ003-0042_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ005-0108_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/nearest/LJ005-0234_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">VITS</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ003-0042_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ005-0108_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ005-0234_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">HierTTS</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla/LJ001-0028_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla/LJ001-0068_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla/LJ003-0042_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla/LJ005-0108_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/vocoder/ljspeech/vanilla/LJ005-0234_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	    <a name="ljspeech_tts"></a>
+	    <h4 class="text-muted">II. Ablation studies</h4>	    
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Text</th>
+		  <td>
+		    <em>during the morning of November twenty-two prior to the motorcade.</em>
+		  </td>
+		  <td>
+		    <em>Oswald was, however, willing to discuss his contacts with Soviet authorities. He denied having any involvement with Soviet intelligence agencies</em>
+		  </td>
+		  <td>
+		    <em>During his Presidency, Franklin D. Roosevelt made almost four hundred journeys and traveled more than three hundred fifty thousand miles.</em>
+		  </td>
+		  <td>
+		    <em>No night clubs or bowling alleys, no places of recreation except the trade union dances. I have had enough.</em>
+		  </td>
+		  <td>
+		    <em>eleven. If I am alive and taken prisoner,</em>
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row" class="left">HierTTS</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ048-0194.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ047-0044.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ046-0058.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ042-0129.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ038-0199.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">-HVAE</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">-Sentent level</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">-Word level</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row" class="left">-Subword level</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  </tr>
+	      </tbody>
+	    </table>
+	    <a name="ljspeech_tts"></a>
+	    <h4 class="text-muted">III. Fast version</h4>	    
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">Text</th>
+		  <td>
+		    <em>during the morning of November twenty-two prior to the motorcade.</em>
+		  </td>
+		  <td>
+		    <em>Oswald was, however, willing to discuss his contacts with Soviet authorities. He denied having any involvement with Soviet intelligence agencies</em>
+		  </td>
+		  <td>
+		    <em>During his Presidency, Franklin D. Roosevelt made almost four hundred journeys and traveled more than three hundred fifty thousand miles.</em>
+		  </td>
+		  <td>
+		    <em>No night clubs or bowling alleys, no places of recreation except the trade union dances. I have had enough.</em>
+		  </td>
+		  <td>
+		    <em>eleven. If I am alive and taken prisoner,</em>
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row" class="left">HierTTS-V1</th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ048-0194.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ047-0044.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ046-0058.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ042-0129.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/gt/LJ038-0199.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">HierTTS-V2</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/v1/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+
+		<tr>
+		  <th scope="row" class="left">HierTTS-V3</span></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/subpixel/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table class="table table-sm">
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">HierTTS-V4</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/nearest/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		</tr>
+		<tr>
+		  <th scope="row" class="left">HierTTS-V5</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla_lowpss/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  </tr>
+		  <tr>
+		  <th scope="row" class="left">HierTTS-V6</a></th>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla/LJ048-0194_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla/LJ047-0044_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla/LJ046-0058_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla/LJ042-0129_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="demo/tts/ljspeech/vanilla/LJ038-0199_generated.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  </tr>
+	      </tbody>
+	    </table>
+      </div>
+    </main>
+
+
+<quillbot-extension-portal></quillbot-extension-portal></body><quillbot-extension-root></quillbot-extension-root><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
