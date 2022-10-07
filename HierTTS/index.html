@@ -78,7 +78,7 @@
 	    <h3 class="text-muted">Abstract</h3>
 	    <div>
 	      <p>
-			End-to-end text-to-speech models that directly generate waveforms from the text are gaining popularity. However, existing end-to-end models are still not natural enough in their prosodic expressiveness. And previous studies on improving the expressiveness of TTS mainly focus on acoustic models. There is a lack of research on enhancing expressiveness in an end-to-end framework. Therefore, we propose HierTTS, a highly expressive end-to-end text-to-waveform generation model. It deeply couples the hierarchical properties of speech with hierarchical variational autoencoders and models multi-scale latent variables, including frame, phone, subword, word, and sentence levels. The hierarchical encoder encodes the speech signal from fine-grained features into coarse-grained latent variables. In contrast, the hierarchical decoder generates fine-grained features conditioned on the coarse-grained latent variables. We propose a staged KL-weighted annealing strategy to prevent hierarchical posterior collapse. Furthermore, we employ a hierarchical text encoder to extract linguistic information at different levels and act on both the encoder and decoder. Experiments show	      <div class="text-center">
+			End-to-end text-to-speech models that directly generate waveforms from the text are gaining popularity. However, existing end-to-end models are still not natural enough in their prosodic expressiveness. And previous studies on improving the expressiveness of TTS mainly focus on acoustic models. There is a lack of research on enhancing expressiveness in an end-to-end framework. Therefore, we propose HierTTS, a highly expressive end-to-end text-to-waveform generation model. It deeply couples the hierarchical properties of speech with hierarchical variational autoencoders and models multi-scale latent variables, including frame, phone, subword, word, and sentence levels. The hierarchical encoder encodes the speech signal from fine-grained features into coarse-grained latent variables. In contrast, the hierarchical decoder generates fine-grained features conditioned on the coarse-grained latent variables. We propose a staged KL-weighted annealing strategy to prevent hierarchical posterior collapse. Furthermore, we employ a hierarchical text encoder to extract linguistic information at different levels and act on both the encoder and decoder. Experiments results show that our model is closer to natural speech in prosody expressiveness and has better generative diversity.	      <div class="text-center">
 	      </div>
 	    </div>
 	  </div>
@@ -352,50 +352,50 @@
 		<tr>
 		  <th scope="row" class="left">Text</th>
 		  <td>
-		    <em>during the morning of November twenty-two prior to the motorcade.</em>
+			<em>雇了美丽性感的女子克洛伊去试探丈夫。</em>
 		  </td>
 		  <td>
-		    <em>Oswald was, however, willing to discuss his contacts with Soviet authorities. He denied having any involvement with Soviet intelligence agencies</em>
+			<em>对于梅耶尔而言，巴雷特确实“物有所值。</em>
 		  </td>
 		  <td>
-		    <em>During his Presidency, Franklin D. Roosevelt made almost four hundred journeys and traveled more than three hundred fifty thousand miles.</em>
+			<em>但是目前泽尻究竟在何处静养还不清楚。</em>
 		  </td>
 		  <td>
-		    <em>No night clubs or bowling alleys, no places of recreation except the trade union dances. I have had enough.</em>
+			<em>柳荫的失误让丹麦连偷两分，将比赛带入加时局。</em>
 		  </td>
 		  <td>
-		    <em>eleven. If I am alive and taken prisoner,</em>
+			<em>魏屯乡果断卖掉仅有的一辆桑塔纳轿车。</em>
 		  </td>
 		</tr>
 		<tr>
 		  <th scope="row" class="left">HierTTS</th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/gt/LJ048-0194.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/gt/LJ047-0044.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/gt/LJ046-0058.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/gt/LJ042-0129.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/gt/LJ038-0199.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -409,31 +409,31 @@
 		  <th scope="row" class="left">-HVAE</a></th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/v1/LJ048-0194_generated.wav" type="audio/wav">
+		      <source src="ablation_v4/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/v1/LJ047-0044_generated.wav" type="audio/wav">
+		      <source src="ablation_v4/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/v1/LJ046-0058_generated.wav" type="audio/wav">
+		      <source src="ablation_v4/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/v1/LJ042-0129_generated.wav" type="audio/wav">
+		      <source src="ablation_v4/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/tts/ljspeech/v1/LJ038-0199_generated.wav" type="audio/wav">
+		      <source src="ablation_v4/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
