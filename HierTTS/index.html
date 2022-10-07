@@ -78,13 +78,18 @@
 	    <h3 class="text-muted">Abstract</h3>
 	    <div>
 	      <p>
-			Developing a high-quality and highly expressive Chinese speech synthesis system is very challenging. Since it is very difficult to generate speech waveforms directly from text, previous work has roughly split the text-to-waveform generation process into three stages: style extraction and prediction, acoustic modeling, and vocoder. Each stage is relatively independent, and the generation process from style to acoustic features to waveform is realized step by step. In this paper, we design a multi-scale end-to-end Chinese speech synthesis system based on the acoustic and linguistic properties of speech. The method employs a hierarchical variational self-encoder approach to model the unification of the three stages and models five scales of implicit variables at the frame level, phoneme level, subword level, word level, and sentence level. The encoder encodes the speech signal from fine-grained features to coarse-grained cryptovariables step by step, while each level of fine-grained features in the decoder relies on coarse-grained cryptovariables for generation. To prevent the posterior failure of the cascaded cryptovariables, we use stepped weights for the KL scatter at different scales, and smaller weights for the cryptovariables encoding long-time information. In addition, we use a cascaded encoder and a tiny-bert pre-training model to obtain subword-level, word-level, and sentence-level semantic information. The experiments show that	      </p>
-	      <div class="text-center">
+			End-to-end text-to-speech models that directly generate waveforms from the text are gaining popularity. However, existing end-to-end models are still not natural enough in their prosodic expressiveness. And previous studies on improving the expressiveness of TTS mainly focus on acoustic models. There is a lack of research on enhancing expressiveness in an end-to-end framework. Therefore, we propose HierTTS, a highly expressive end-to-end text-to-waveform generation model. It deeply couples the hierarchical properties of speech with hierarchical variational autoencoders and models multi-scale latent variables, including frame, phone, subword, word, and sentence levels. The hierarchical encoder encodes the speech signal from fine-grained features into coarse-grained latent variables. In contrast, the hierarchical decoder generates fine-grained features conditioned on the coarse-grained latent variables. We propose a staged KL-weighted annealing strategy to prevent hierarchical posterior collapse. Furthermore, we employ a hierarchical text encoder to extract linguistic information at different levels and act on both the encoder and decoder. Experiments show	      <div class="text-center">
 	      </div>
 	    </div>
 	  </div>
 	</div>
-	
+	<tr>
+	<th>Read abstract in Chinese Mandarin</th>
+	</tr>
+	<audio controls="">
+	<source src="abstract.wav" type="audio/wav">
+	Your browser does not support the audio element.
+	</audio>
 	<div class="row" id="results">
 	  <div class="col-md-12">
 	    <h3 class="text-muted">Experiment results</h3>
@@ -125,31 +130,31 @@
 		  <th scope="row" class="left">Ground truth</th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/real/LJ001-0028.wav" type="audio/wav">
+		      <source src="real/transfer.tim_0_sty_0_utt_3_tgt.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/real/LJ001-0068.wav" type="audio/wav">
+		      <source src="real/transfer.tim_0_sty_0_utt_5_tgt.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/real/LJ003-0042.wav" type="audio/wav">
+		      <source src="real/transfer.tim_0_sty_0_utt_6_tgt.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/real/LJ005-0108.wav" type="audio/wav">
+		      <source src="real/transfer.tim_0_sty_0_utt_7_tgt.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/real/LJ005-0234.wav" type="audio/wav">
+		      <source src="real/transfer.tim_0_sty_0_utt_0_tgt.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -163,31 +168,31 @@
 		  <th scope="row" class="left">FastSpeech2 + HiFi-GAN</th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/v1/LJ001-0028_generated.wav" type="audio/wav">
+		      <source src="fastspeech2/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/v1/LJ001-0068_generated.wav" type="audio/wav">
+		      <source src="fastspeech2/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/v1/LJ003-0042_generated.wav" type="audio/wav">
+		      <source src="fastspeech2/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/v1/LJ005-0108_generated.wav" type="audio/wav">
+		      <source src="fastspeech2/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/v1/LJ005-0234_generated.wav" type="audio/wav">
+		      <source src="fastspeech2/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -197,31 +202,31 @@
 		  <th scope="row" class="left">MultiGST + HiFi-GAN</span></th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0028_generated.wav" type="audio/wav">
+		      <source src="multigst/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/subpixel/LJ001-0068_generated.wav" type="audio/wav">
+		      <source src="multigst/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/subpixel/LJ003-0042_generated.wav" type="audio/wav">
+		      <source src="multigst/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/subpixel/LJ005-0108_generated.wav" type="audio/wav">
+		      <source src="multigst/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/subpixel/LJ005-0234_generated.wav" type="audio/wav">
+		      <source src="multigst/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -231,31 +236,31 @@
 		  <th scope="row" class="left">PortaSpeech + HiFi-GAN</span></th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0028_generated.wav" type="audio/wav">
+		      <source src="portaspeech/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/nearest/LJ001-0068_generated.wav" type="audio/wav">
+		      <source src="portaspeech/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/nearest/LJ003-0042_generated.wav" type="audio/wav">
+		      <source src="portaspeech/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/nearest/LJ005-0108_generated.wav" type="audio/wav">
+		      <source src="portaspeech/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/nearest/LJ005-0234_generated.wav" type="audio/wav">
+		      <source src="portaspeech/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -265,31 +270,31 @@
 		  <th scope="row" class="left">VITS</span></th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ001-0028_generated.wav" type="audio/wav">
+		      <source src="vits/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ001-0068_generated.wav" type="audio/wav">
+		      <source src="vits/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ003-0042_generated.wav" type="audio/wav">
+		      <source src="vits/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ005-0108_generated.wav" type="audio/wav">
+		      <source src="vits/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla_lowpss/LJ005-0234_generated.wav" type="audio/wav">
+		      <source src="vits/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -299,31 +304,31 @@
 		  <th scope="row" class="left">HierTTS</th>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla/LJ001-0028_generated.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_3.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla/LJ001-0068_generated.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla/LJ003-0042_generated.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_6.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla/LJ005-0108_generated.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_7.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
 		  <td>
 		    <audio controls="">
-		      <source src="demo/vocoder/ljspeech/vanilla/LJ005-0234_generated.wav" type="audio/wav">
+		      <source src="proposed/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
 		      Your browser does not support the audio element.
 		    </audio>
 		  </td>
@@ -539,6 +544,63 @@
 		  </td>
 		  </tr>
 	      </tbody>
+	    </table>
+	    <a name="ljspeech_tts"></a>
+	    <h4 class="text-muted">III. Sample diversity</h4>	    
+	    <table class="table table-sm">
+	      <thead>
+		<tr>
+			<th scope="row" class="left">Text</th>
+			<td colspan="3"">
+				<em>淋过雨的空气，疲倦了的伤心，我记忆里的童话已经慢慢的融化。</em>
+			</td>
+		</tr>
+		<tr>
+		  <th></th>
+		  <th>Sample 1</th>
+		  <th>Sample 2</th>
+		  <th>Sample 3</th>
+		  <th>Sample 4</th>
+		  <th>Sample 5</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row" class="left">HierTTS</th>
+		  <td>
+		    <audio controls="">
+		      <source src="sample/transfer.tim_0_sty_0_utt_88.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="sample/transfer.tim_0_sty_0_utt_0.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="sample/transfer.tim_0_sty_0_utt_13.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="sample/transfer.tim_0_sty_0_utt_5.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  <td>
+		    <audio controls="">
+		      <source src="sample/transfer.tim_0_sty_0_utt_10.wav" type="audio/wav">
+		      Your browser does not support the audio element.
+		    </audio>
+		  </td>
+		  </tr>
+	      </tbody>
+	    </table>
+		<!--
 	    </table>
 	    <a name="ljspeech_tts"></a>
 	    <h4 class="text-muted">III. Fast version</h4>	    
@@ -783,6 +845,7 @@
 		  </tr>
 	      </tbody>
 	    </table>
+		-->
       </div>
     </main>
 
